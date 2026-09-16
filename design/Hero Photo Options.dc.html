@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>body{margin:0;background:#1B1C1A;font-family:system-ui,sans-serif;color:#fff} a{color:#fff} a:hover{color:#C9CBC5}</style>
+</helmet>
+<div style="padding:32px clamp(18px,4vw,56px)">
+  <h1 style="font-size:22px;font-weight:700;margin:0 0 6px;letter-spacing:-.02em">Hero background candidates</h1>
+  <p style="margin:0 0 26px;color:#C9CBC5;font-size:14px">Shown with the hero's dark left-to-right overlay so you can judge how the headline will sit. Tell me the number.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:22px">
+    <sc-for list="{{ items }}" as="it" hint-placeholder-count="8">
+      <figure style="margin:0;display:grid;gap:10px">
+        <div style="position:relative;aspect-ratio:16/8;overflow:hidden;background:#2A2B28">
+          <img src="{{ it.src }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+          <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(27,28,26,.92) 0%,rgba(27,28,26,.78) 45%,rgba(27,28,26,.55) 100%)"></div>
+          <div style="position:absolute;left:24px;bottom:22px;right:24px">
+            <div style="font-size:11px;letter-spacing:.2em;color:#C9CBC5;margin-bottom:6px">PREVIEW</div>
+            <div style="font-size:26px;font-weight:700;line-height:1.05;letter-spacing:-.03em">Materials delivered<br>to your site.</div>
+          </div>
+          <div style="position:absolute;top:14px;left:14px;background:#fff;color:#1B1C1A;font-weight:700;font-size:13px;padding:4px 9px">{{ it.n }}</div>
+        </div>
+        <figcaption style="display:flex;justify-content:space-between;gap:12px;font-size:13px;color:#C9CBC5"><span>{{ it.label }}</span><a href="{{ it.href }}" target="_blank" style="text-decoration:none;flex:none">{{ it.by }}</a></figcaption>
+      </figure>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const L = [
+      ['1533378890784-b2a5b0a59d40','Rebar grid being laid on site','Saad Salim','saadx'],
+      ['1694521787673-28cbd8830ea5','Steel bundles, workers on site','Glenov Brankovic','glenovbrankovic'],
+      ['1672627170267-fca17bb54156','House under construction, stacked materials in foreground','Ernie Journeys','erniejourneys'],
+      ['1609867271967-a82f85c48531','Site with crane and material stacks','Jan Huber','jan_huber'],
+      ['1630683924997-fe27050a0416','Worker on pallet stack at site','Emma Houghton','madebyswish'],
+      ['1517089152318-42ec560349c0','Aerial: trucks unloading on site','Shane McLendon','kctinman'],
+      ['1637241612956-b7309005288b','Bricks & blocks in racks','Markus Winkler','markuswinkler'],
+      ['1629608564457-5d74829a9e14','Brick pallets stacked','Lluvia Morales','hi_lluvia'],
+      ['1508450859948-4e04fabaa4ea','Concrete frame under construction','Tolu Olubode','toluobde'],
+      ['1599995903128-531fc7fb694b','Cranes over foundations (current)','Samuel Regan-Asante','reganography']
+    ];
+    return { items: L.map((r,i)=>({ n: i+1, src:'https://images.unsplash.com/photo-'+r[0]+'?auto=format&fit=crop&w=900&q=70', label:r[1], by:r[2], href:'https://unsplash.com/@'+r[3] })) };
+  }
+}
+</script>
+</body>
+</html>

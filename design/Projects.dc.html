@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dude &amp; Co. — Construction Material Supplier in Karnataka | Building Materials &amp; Civil Construction</title>
+<meta name="description" content="dude &amp; Co. supplies construction materials across Karnataka — cement, TMT steel, M-sand, aggregates, bricks, AAC blocks, RMC and finishing materials — and undertakes complete civil construction. Based in Bengaluru. GST registered business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@500;600&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F6F6F3;color:#1B1C1A;font-family:Archivo,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#409804;text-decoration:none}
+a:hover{color:#2F7203}
+::selection{background:#E0A526;color:#fff}
+input,select,textarea,button{font:inherit;color:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#409804}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+[data-line]{transform:scaleX(0);transform-origin:left center;transition:transform 1.8s cubic-bezier(.16,1,.3,1)}
+@keyframes upIn{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+@keyframes maskIn{from{transform:translateY(105%)}to{transform:none}}
+@keyframes zoomOut{from{transform:scale(1.04)}to{transform:scale(1)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes waPulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.9);opacity:0}}
+@keyframes waPop{0%{transform:scale(0);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+@media (max-width:700px){[data-reveal]{transform:translateY(14px)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}[data-reveal]{opacity:1!important;transform:none!important}[data-line]{transform:none!important}}
+</style>
+</helmet>
+<div style="position:relative;width:100%;overflow-x:hidden;animation:fadeIn .5s ease both">
+<header style="position:fixed;top:0;left:0;right:0;z-index:90;background:rgba(246,246,243,.86);backdrop-filter:blur(14px);border-bottom:1px solid #E2E3DF;animation:fadeIn .8s ease both">
+  <div id="scroll-progress" style="position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#E0A526;transform:scaleX(0);transform-origin:left center;pointer-events:none;z-index:2"></div>
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,56px);height:{{ headerH }};display:flex;align-items:center;gap:28px;transition:height .45s cubic-bezier(.16,1,.3,1)">
+    <a href="Home.dc.html" style="display:flex;align-items:center;gap:11px;color:inherit;flex:none">
+      <img src="logo-mark.png" alt="" width="34" height="34" style="display:block;width:34px;height:34px;object-fit:contain">
+      <span style="display:flex;flex-direction:column;line-height:1">
+        <span style="font-family:'Copperplate Gothic Light','Copperplate Gothic','Copperplate',Cinzel,serif;font-variant:small-caps;text-transform:none;font-size:20px;font-weight:600;letter-spacing:.04em;color:#1B1C1A">Dude &amp; Co.</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.22em;color:#565656;margin-top:4px">MATERIALS &amp; CONSTRUCTION</span>
+      </span>
+    </a>
+
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;gap:clamp(14px,2vw,30px);margin-left:auto;align-items:center">
+        <sc-for list="{{ nav }}" as="item" hint-placeholder-count="7">
+          <a href="{{ item.href }}" style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;color:#565656;padding:6px 0;position:relative;letter-spacing:.02em" style-hover="color:#1B1C1A">
+            {{ item.label }}
+            <span style="position:absolute;left:0;right:0;bottom:0;height:1.5px;background:#E0A526;transform:scaleX({{ item.on }});transform-origin:left;transition:transform .4s cubic-bezier(.16,1,.3,1)"></span>
+          </a>
+        </sc-for>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px;flex:none">
+        <a href="Contact.dc.html#quote" style="font-family:'IBM Plex Sans',sans-serif;background:#409804;color:#fff;font-size:13px;font-weight:600;letter-spacing:.02em;padding:12px 20px;white-space:nowrap" style-hover="background:#1B1C1A">Get a Quote</a>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+        <a href="tel:+916363703532" aria-label="Call" style="width:40px;height:40px;border:1px solid #E2E3DF;display:grid;place-items:center;background:#fff">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#409804" stroke-width="1.8"><path d="M4 4h4l2 5-2.5 1.5a12 12 0 0 0 6 6L15 14l5 2v4a16 16 0 0 1-16-16Z"></path></svg>
+        </a>
+        <button onClick="{{ toggleMenu }}" aria-label="Menu" style="width:40px;height:40px;border:1px solid #E2E3DF;background:#1B1C1A;display:grid;place-items:center;gap:0;cursor:pointer;padding:0">
+          <span style="display:block;width:16px;height:1.5px;background:#fff;margin:2px 0"></span>
+          <span style="display:block;width:16px;height:1.5px;background:#409804;margin:2px 0"></span>
+          <span style="display:block;width:16px;height:1.5px;background:#fff;margin:2px 0"></span>
+        </button>
+      </div>
+    </sc-if>
+  </div>
+</header>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:95;background:#1B1C1A;padding:26px clamp(18px,6vw,40px);display:flex;flex-direction:column;animation:fadeIn .35s ease both">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span style="font-family:'Copperplate Gothic Light','Copperplate Gothic','Copperplate',Cinzel,serif;font-variant:small-caps;text-transform:none;font-size:20px;font-weight:600;letter-spacing:.04em;color:#fff">Dude &amp; Co.</span>
+      <button onClick="{{ toggleMenu }}" aria-label="Close" style="width:40px;height:40px;border:1px solid #3A3C38;background:none;color:#fff;font-size:20px;cursor:pointer">×</button>
+    </div>
+    <nav style="margin-top:44px;display:flex;flex-direction:column">
+      <sc-for list="{{ nav }}" as="item" hint-placeholder-count="7">
+        <a href="{{ item.href }}" onClick="{{ closeMenu }}" style="color:#fff;font-size:clamp(26px,8vw,34px);font-weight:600;letter-spacing:-.02em;padding:14px 0;border-bottom:1px solid #2C2E2A;animation:upIn .6s cubic-bezier(.16,1,.3,1) both">{{ item.label }}</a>
+      </sc-for>
+    </nav>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px;padding-top:28px">
+      <a href="Contact.dc.html#quote" onClick="{{ closeMenu }}" style="background:#409804;color:#fff;text-align:center;padding:17px;font-weight:600">Get a Free Quote</a>
+      <a href="https://wa.me/916363703532" target="_blank" rel="noopener" style="border:1px solid #3A3C38;color:#fff;text-align:center;padding:17px;font-weight:600">Chat on WhatsApp</a>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#A9ABA5;text-align:center;letter-spacing:.1em">+91 63637 03532</span>
+    </div>
+  </div>
+</sc-if>
+
+<section data-screen-label="Projects We Have Supplied." style="position:relative;background:#1B1C1A;color:#fff;overflow:hidden;padding:clamp(104px,13vw,158px) 0 clamp(44px,5vw,76px)">
+  <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:88px 88px;opacity:.045"></div>
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,56px);position:relative">
+    <div style="display:flex;align-items:center;gap:12px;animation:upIn .8s cubic-bezier(.16,1,.3,1) .05s both">
+      <span style="width:30px;height:1px;background:#E0A526"></span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#E0A526">SELECTED WORK</span>
+    </div>
+    <h1 style="font-size:clamp(34px,6vw,74px);line-height:1;letter-spacing:-.036em;font-weight:700;margin:20px 0 0;max-width:20ch;text-wrap:pretty;animation:upIn .9s cubic-bezier(.16,1,.3,1) .15s both">Projects We Have Supplied.</h1>
+    <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#A9ABA5;max-width:58ch;margin:20px 0 0;animation:upIn .9s cubic-bezier(.16,1,.3,1) .28s both">Residential, commercial, construction and renovation work across Karnataka. Project photography and details are being finalised.</p>
+  </div>
+</section>
+<section id="projects" data-screen-label="Projects" style="background:#F6F6F3;padding:clamp(60px,8vw,116px) 0">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,56px)">
+    <div data-reveal="1" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#565656">SELECTED WORK</span>
+        <h2 style="font-size:clamp(28px,4vw,50px);line-height:1.04;letter-spacing:-.032em;font-weight:700;margin:14px 0 0">Projects Built With Purpose.</h2>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+          <button onClick="{{ f.click }}" style="border:1px solid {{ f.border }};background:{{ f.bg }};color:{{ f.fg }};font-size:12.5px;font-weight:600;padding:10px 16px;cursor:pointer;transition:all .35s ease" style-hover="border-color:#409804">{{ f.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#565656;margin:18px 0 0;letter-spacing:.1em">PLACEHOLDER PROJECTS — STOCK PHOTOGRAPHY, TO BE REPLACED WITH ACTUAL PROJECT PHOTOS</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:clamp(16px,1.8vw,26px);margin-top:26px">
+      <sc-for list="{{ shownProjects }}" as="p" hint-placeholder-count="6">
+        <article data-reveal="1" data-delay="{{ p.d }}" style="background:#fff;border:1px solid #E2E3DF;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s ease" style-hover="transform:translateY(-6px);box-shadow:0 24px 50px -30px rgba(27,28,26,.4)">
+          <div style="position:relative;aspect-ratio:16/11;overflow:hidden;background:#EDEEEA">
+            <div style="position:absolute;inset:0;transition:transform .9s cubic-bezier(.16,1,.3,1)" style-hover="transform:scale(1.05)">
+              <image-slot id="{{ p.slot }}" shape="rect" fit="cover" src="{{ p.src }}" credit="{{ p.credit }}" credit-href="{{ p.href }}" placeholder="{{ p.art }}"></image-slot>
+            </div>
+            <span style="position:absolute;top:0;right:0;background:#E0A526;color:#1B1C1A;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;padding:6px 10px;pointer-events:none">{{ p.type }}</span>
+          </div>
+          <div style="padding:20px 20px 24px">
+            <h3 style="font-size:19px;font-weight:700;letter-spacing:-.022em;margin:0">{{ p.name }}</h3>
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8F6300;margin:8px 0 0;letter-spacing:.08em">{{ p.loc }}</p>
+            <p style="font-size:13.5px;line-height:1.55;color:#565656;margin:10px 0 0">{{ p.desc }}</p>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<section style="background:#fff;padding:clamp(60px,8vw,116px) 0;border-top:1px solid #E2E3DF">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,56px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(20px,4vw,60px);align-items:end">
+      <div data-reveal="1">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#565656">TWO WAYS WE WORK</span>
+        <h2 style="font-size:clamp(28px,4vw,50px);line-height:1.04;letter-spacing:-.033em;font-weight:700;margin:16px 0 0;text-wrap:pretty;color:#1B1C1A">Supply Only, or Supply and Build.</h2>
+      </div>
+      <p data-reveal="1" data-delay="120" style="font-size:16px;line-height:1.6;color:#565656;max-width:46ch;margin:0 0 8px">Most clients start with materials. Some ask us to take the whole build. Both routes use the same team and the same quality checks.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:1px;background:#E2E3DF;border:1px solid #E2E3DF;margin-top:clamp(32px,4vw,56px)">
+      <div data-reveal="1" style="background:#fff;padding:clamp(24px,3vw,40px)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#8F6300">PRIMARY</span>
+        <h3 style="font-size:24px;font-weight:700;letter-spacing:-.025em;margin:12px 0 0">Material Supply</h3>
+        <p style="font-size:14.5px;line-height:1.65;color:#565656;margin:12px 0 0">You or your contractor run the site. We quote, source and deliver the materials stage by stage, matched to your drawings and schedule.</p>
+        <ul style="margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px;font-size:14px;color:#1B1C1A"><li style="display:flex;gap:10px"><span style="color:#409804">—</span>Itemised quotation by grade and brand</li><li style="display:flex;gap:10px"><span style="color:#409804">—</span>Deliveries scheduled to construction stages</li><li style="display:flex;gap:10px"><span style="color:#409804">—</span>Quantity checks and challans at site</li><li style="display:flex;gap:10px"><span style="color:#409804">—</span>Guidance on grade and application</li></ul>
+      </div>
+      <div data-reveal="1" data-delay="120" style="background:#1B1C1A;color:#fff;padding:clamp(24px,3vw,40px)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#8F6300">SECONDARY</span>
+        <h3 style="font-size:24px;font-weight:700;letter-spacing:-.025em;margin:12px 0 0">Supply and Construction</h3>
+        <p style="font-size:14.5px;line-height:1.65;color:#C9CBC5;margin:12px 0 0">We take responsibility for execution as well as materials. One point of contact, one schedule, one quality standard from foundation to finishing.</p>
+        <ul style="margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px;font-size:14px;color:#fff"><li style="display:flex;gap:10px"><span style="color:#409804">—</span>Stage-wise scope and payment schedule</li><li style="display:flex;gap:10px"><span style="color:#409804">—</span>Site supervision and labour management</li><li style="display:flex;gap:10px"><span style="color:#409804">—</span>Materials matched to the structural design</li><li style="display:flex;gap:10px"><span style="color:#409804">—</span>Handover with snag list closed</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section style="background:#F6F6F3;padding:clamp(60px,8vw,116px) 0;">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,56px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(20px,4vw,60px);align-items:end">
+      <div data-reveal="1">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#565656">BY PROJECT TYPE</span>
+        <h2 style="font-size:clamp(28px,4vw,50px);line-height:1.04;letter-spacing:-.033em;font-weight:700;margin:16px 0 0;text-wrap:pretty;color:#1B1C1A">What a Project Typically Includes.</h2>
+      </div>
+      <p data-reveal="1" data-delay="120" style="font-size:16px;line-height:1.6;color:#565656;max-width:46ch;margin:0 0 8px">The material list changes with the kind of building. These are the categories we most often supply for each.</p>
+    </div>    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:1px;background:#E2E3DF;border:1px solid #E2E3DF;margin-top:clamp(32px,4vw,56px)">
+      <div data-reveal="1" data-delay="0" style="background:#fff;padding:clamp(22px,2.6vw,34px);transition:background .4s ease" style-hover="background:#FBFBF9">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8F6300">HOMES · VILLAS</span>
+        <h3 style="font-size:18px;font-weight:700;letter-spacing:-.02em;margin:12px 0 0;color:#1B1C1A">Residential</h3>
+        <p style="font-size:13.5px;line-height:1.65;color:#565656;margin:10px 0 0">Cement, TMT steel, M-sand, aggregates and blocks for the structure, then tiles, plumbing, electrical, sanitary ware, doors, windows and paints for finishing.</p>
+      </div>
+      <div data-reveal="1" data-delay="110" style="background:#fff;padding:clamp(22px,2.6vw,34px);transition:background .4s ease" style-hover="background:#FBFBF9">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8F6300">OFFICES · WAREHOUSES</span>
+        <h3 style="font-size:18px;font-weight:700;letter-spacing:-.02em;margin:12px 0 0;color:#1B1C1A">Commercial</h3>
+        <p style="font-size:13.5px;line-height:1.65;color:#565656;margin:10px 0 0">Higher concrete grades and RMC for larger spans, structural steel, hollow blocks, waterproofing systems and durable flooring for heavier use.</p>
+      </div>
+      <div data-reveal="1" data-delay="220" style="background:#fff;padding:clamp(22px,2.6vw,34px);transition:background .4s ease" style-hover="background:#FBFBF9">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8F6300">RETROFIT · REPAIR</span>
+        <h3 style="font-size:18px;font-weight:700;letter-spacing:-.02em;margin:12px 0 0;color:#1B1C1A">Renovation</h3>
+        <p style="font-size:13.5px;line-height:1.65;color:#565656;margin:10px 0 0">Smaller, precise quantities: waterproofing, plaster and putty, tiles and adhesives, plumbing and electrical replacements, paints and hardware.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section style="background:#fff;padding:clamp(60px,8vw,116px) 0;">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,56px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(20px,4vw,60px);align-items:end">
+      <div data-reveal="1">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#565656">BEFORE YOU ORDER</span>
+        <h2 style="font-size:clamp(28px,4vw,50px);line-height:1.04;letter-spacing:-.033em;font-weight:700;margin:16px 0 0;text-wrap:pretty;color:#1B1C1A">A Short Project Checklist.</h2>
+      </div>
+      <p data-reveal="1" data-delay="120" style="font-size:16px;line-height:1.6;color:#565656;max-width:46ch;margin:0 0 8px">Six things that make a material order go smoothly, whatever the size of the project.</p>
+    </div>    <div style="border-top:1px solid #DCDDD8;margin-top:clamp(28px,4vw,48px)">
+      <div data-reveal="1" data-delay="0" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid #DCDDD8;align-items:start">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8F6300;padding-top:4px">01</span>
+        <div><h3 style="font-size:16px;font-weight:600;letter-spacing:-.015em;margin:0;color:#1B1C1A">Confirm quantities against drawings</h3><p style="font-size:14px;line-height:1.6;color:#565656;margin:6px 0 0;max-width:70ch">Work from the structural and architectural drawings, not from memory. Small overages are normal; large ones are waste.</p></div>
+      </div>
+      <div data-reveal="1" data-delay="80" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid #DCDDD8;align-items:start">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8F6300;padding-top:4px">02</span>
+        <div><h3 style="font-size:16px;font-weight:600;letter-spacing:-.015em;margin:0;color:#1B1C1A">Check site access</h3><p style="font-size:14px;line-height:1.6;color:#565656;margin:6px 0 0;max-width:70ch">Road width, turning space and overhead lines decide whether a large truck or a smaller vehicle should deliver.</p></div>
+      </div>
+      <div data-reveal="1" data-delay="160" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid #DCDDD8;align-items:start">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8F6300;padding-top:4px">03</span>
+        <div><h3 style="font-size:16px;font-weight:600;letter-spacing:-.015em;margin:0;color:#1B1C1A">Prepare storage</h3><p style="font-size:14px;line-height:1.6;color:#565656;margin:6px 0 0;max-width:70ch">A dry, raised area for cement and a clear bay for sand and aggregate before the first delivery arrives.</p></div>
+      </div>
+      <div data-reveal="1" data-delay="240" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid #DCDDD8;align-items:start">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8F6300;padding-top:4px">04</span>
+        <div><h3 style="font-size:16px;font-weight:600;letter-spacing:-.015em;margin:0;color:#1B1C1A">Match grades to the stage</h3><p style="font-size:14px;line-height:1.6;color:#565656;margin:6px 0 0;max-width:70ch">Footings, columns and slabs may need different aggregate sizes and concrete grades. Order what the stage needs.</p></div>
+      </div>
+      <div data-reveal="1" data-delay="0" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid #DCDDD8;align-items:start">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8F6300;padding-top:4px">05</span>
+        <div><h3 style="font-size:16px;font-weight:600;letter-spacing:-.015em;margin:0;color:#1B1C1A">Agree the delivery window</h3><p style="font-size:14px;line-height:1.6;color:#565656;margin:6px 0 0;max-width:70ch">Materials arriving before the site is ready sit in the open. Schedule deliveries to the work.</p></div>
+      </div>
+      <div data-reveal="1" data-delay="80" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid #DCDDD8;align-items:start">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8F6300;padding-top:4px">06</span>
+        <div><h3 style="font-size:16px;font-weight:600;letter-spacing:-.015em;margin:0;color:#1B1C1A">Keep challans and test certificates</h3><p style="font-size:14px;line-height:1.6;color:#565656;margin:6px 0 0;max-width:70ch">File every delivery challan and steel or cement certificate. They matter for quality checks and for the record.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section style="position:relative;background:#1B1C1A;color:#fff;overflow:hidden;padding:clamp(70px,10vw,150px) 0">
+  <div style="position:absolute;left:50%;top:50%;width:min(1100px,120vw);opacity:.14;pointer-events:none;transform:translate(-50%,calc(-50% + {{ parallax }}))">
+    <img src="logo-mark.png" alt="" style="width:100%;display:block">
+  </div>
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,56px);position:relative;text-align:center">
+    <h2 data-reveal="1" style="font-size:clamp(36px,7vw,86px);line-height:1;letter-spacing:-.04em;font-weight:700;margin:0">Planning to Build?</h2>
+    <p data-reveal="1" data-delay="100" style="font-size:clamp(15px,1.6vw,19px);line-height:1.55;color:#C9CBC5;margin:22px auto 0;max-width:52ch">Tell us what you're building. We'll help you understand the materials, requirements and next steps.</p>
+    <div data-reveal="1" data-delay="200" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:34px">
+      <a href="Contact.dc.html#quote" style="background:#409804;color:#fff;font-weight:600;font-size:15px;padding:18px 32px" style-hover="background:#fff;color:#1B1C1A">Get a Free Quote</a>
+      <a href="tel:+916363703532" style="border:1px solid #464843;color:#fff;font-weight:600;font-size:15px;padding:18px 32px" style-hover="border-color:#409804;color:#409804">Call +91 63637 03532</a>
+      <a href="https://wa.me/916363703532" target="_blank" rel="noopener" style="border:1px solid #409804;color:#409804;font-weight:600;font-size:15px;padding:18px 32px" style-hover="background:#409804;color:#fff">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+<footer style="position:relative;background:#141513;color:#C9CBC5;overflow:hidden;padding:clamp(48px,6vw,86px) 0 0">
+  <div style="position:absolute;right:-8%;bottom:-30%;width:min(560px,70vw);opacity:.11;pointer-events:none">
+    <img src="logo-mark.png" alt="" style="width:100%;display:block">
+  </div>
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,56px);position:relative">
+    <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:clamp(24px,3vw,44px)">
+      <div style="min-width:220px">
+        <div style="display:flex;align-items:center;gap:11px">
+          <img src="logo-mark.png" alt="" width="32" height="32" style="display:block;width:32px;height:32px;object-fit:contain">
+          <span style="font-family:'Copperplate Gothic Light','Copperplate Gothic','Copperplate',Cinzel,serif;font-variant:small-caps;text-transform:none;font-size:20px;font-weight:600;letter-spacing:.04em;color:#fff">Dude &amp; Co.</span>
+        </div>
+        <p style="font-size:13.5px;line-height:1.6;margin:16px 0 0;max-width:34ch">Construction materials and complete construction support, serving projects across Karnataka.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#E0A526;margin:18px 0 0">GST REGISTERED BUSINESS</p>
+      </div>
+      <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="4">
+        <div>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#9A9C96">{{ col.title }}</span>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:16px">
+            <sc-for list="{{ col.items }}" as="it" hint-placeholder-count="7">
+              <a href="{{ it.href }}" style="font-size:13.5px;color:#C9CBC5" style-hover="color:#E0A526">{{ it.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:clamp(34px,4vw,56px);padding:22px 0;border-top:1px solid #262824;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center">
+      <span style="font-size:12px;color:#9A9C96">© 2026 dude &amp; Co. All rights reserved.</span>
+      <span style="font-size:12px;color:#9A9C96;max-width:60ch">No. 20, Saladoddi Grama, Bengaluru Urban - 560082, Bengaluru, Karnataka</span>
+      <div style="display:flex;gap:18px">
+        <a href="Privacy.dc.html" style="font-size:12px;color:#9A9C96" style-hover="color:#E0A526">Privacy Policy</a>
+        <a href="Terms.dc.html" style="font-size:12px;color:#9A9C96" style-hover="color:#E0A526">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+  <div style="height:57px"></div>
+</sc-if>
+
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+  <a href="https://wa.me/916363703532" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="position:fixed;right:28px;bottom:28px;z-index:80;width:56px;height:56px;border-radius:50%;background:#409804;display:grid;place-items:center;box-shadow:0 6px 20px rgba(27,28,26,.22);animation:waPop .6s cubic-bezier(.34,1.56,.64,1) .8s both;transition:transform .25s ease,background .25s ease" style-hover="background:#1B1C1A;transform:translateY(-3px)">
+    <span aria-hidden="true" style="position:absolute;inset:0;border-radius:50%;border:2px solid #409804;animation:waPulse 2.2s ease-out 1.4s infinite;pointer-events:none"></span>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" style="position:relative"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.02.24-3.45-.72-2.93-1.15-4.77-4.2-4.91-4.4-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.38.26-.29.57-.36.77-.36.19 0 .39 0 .56.01.19.01.44-.07.68.53.24.6.82 2.06.89 2.2.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.14-.3.3-.13.6.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.45.29.15.46.12.63-.07.17-.19.73-.85.93-1.14.19-.29.39-.24.65-.15.27.1 1.71.81 2 .95.29.15.49.22.56.34.07.12.07.7-.17 1.38Z"></path></svg>
+  </a>
+</sc-if>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:1fr auto;gap:1px;background:#1B1C1A;border-top:1px solid #2C2E2A">
+    <a href="Contact.dc.html#quote" style="background:#409804;color:#fff;text-align:center;padding:16px;font-size:15px;font-weight:600">Get Free Quote</a>
+    <a href="https://wa.me/916363703532" target="_blank" rel="noopener" aria-label="WhatsApp" style="background:#1B1C1A;display:grid;place-items:center;padding:0 20px">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#409804"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.02.24-3.45-.72-2.93-1.15-4.77-4.2-4.91-4.4-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.38.26-.29.57-.36.77-.36.19 0 .39 0 .56.01.19.01.44-.07.68.53.24.6.82 2.06.89 2.2.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.14-.3.3-.13.6.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.45.29.15.46.12.63-.07.17-.19.73-.85.93-1.14.19-.29.39-.24.65-.15.27.1 1.71.81 2 .95.29.15.49.22.56.34.07.12.07.7-.17 1.38Z"></path></svg>
+    </a>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;full&quot;,&quot;subtle&quot;,&quot;off&quot;],&quot;default&quot;:&quot;full&quot;,&quot;tsType&quot;:&quot;'full' | 'subtle' | 'off'&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;showEstimator&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;}}">
+const EASE = 'cubic-bezier(.16,1,.3,1)';
+
+const U = id => 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&w=1400&q=70';
+const P = (name, user) => ({ credit: 'Photo by ' + name + ' on Unsplash', href: 'https://unsplash.com/@' + user });
+
+const PHOTO = {
+  hero: ['1599995903128-531fc7fb694b', 'Samuel Regan-Asante', 'reganography'],
+  civil: ['1531834685032-c34bf0d84c77', 'Josue Isai Ramos Figueroa', 'jramos10'],
+  quality: ['1504307651254-35680f356dfd', 'Etienne Girardet', 'etiennegirardet']
+};
+
+const MATERIALS = [
+  ['01','Cement','OPC 43 · OPC 53 · PPC · PSC','Grade options for structural, plastering and general construction use.','Cement bags stacked / professional cement storage','1573345173719-5fbd4783d3c8','Bhavya Kashyap','bkashyap'],
+  ['02','TMT Steel','Fe 500 · Fe 500D · Fe 550 · other grades','Reinforcement steel supplied to the grade and diameter your design calls for.','TMT reinforcement bars bundled on site','1527335988388-b40ee248d80c','Jacek Dylag','dylu'],
+  ['03','M-Sand','Concrete · Plastering · Washed','Manufactured sand variants for concreting, masonry and plaster work.','Clean manufactured sand (M-sand) close-up','1581710515207-e12b6e176779','Wesley Tingey','wesleyphotography'],
+  ['04','River Sand','Based on availability','Supplied subject to availability and project requirements.','River sand heap at supply yard','1584184200374-73d7f6c6a175','Valentin Salja','valentinsalja'],
+  ['05','Aggregates / Jelly','12mm · 20mm · 40mm · other sizes','Graded granite aggregates for concrete, footing and road work.','Granite jelly aggregate stones close-up','1598092655914-44f06584e31a','Justus Menke','justusmenke'],
+  ['06','Red Bricks','Wire-cut · Table-mould','Brick varieties suited to load-bearing and partition masonry.','High-quality wire-cut red bricks stacked'],
+  ['07','Concrete Blocks','Solid · Hollow','Standard block sizes for walls, compound work and infill masonry.','Concrete solid and hollow blocks on pallet','1565626424178-c699f6601afd','uve sanchez','uvesanchez'],
+  ['08','AAC Blocks','Lightweight · multiple thicknesses','Lightweight blocks that reduce dead load and speed up masonry.','AAC blocks stacked at construction site','1579492450119-80542d516179','Wesley Tingey','wesleyphotography'],
+  ['09','Ready Mix Concrete','Project-specific grades','RMC arranged to your grade and pour schedule, site conditions permitting.','Ready-mix concrete truck pouring concrete','1541888946425-d81bb19240f5','Scott Blake','sunburned_surveyor']
+];
+
+const FINISHING = [
+  ['10','Tiles & Flooring','Vitrified, ceramic, granite, marble'],
+  ['11','Plumbing Materials','Pipes, fittings, valves, accessories'],
+  ['12','Electrical Materials','Wires, cables, switches, conduits'],
+  ['13','Sanitary Ware & CP Fittings','Basins, WC, faucets, showers'],
+  ['14','Doors & Windows','Main, internal, UPVC, aluminium'],
+  ['15','Waterproofing Materials','Chemicals, coatings, membranes'],
+  ['16','Paints & Finishing','Interior, exterior, primer, putty'],
+  ['17','Glass & Architectural','Glazing and architectural materials'],
+  ['18','Wall Cladding','Exterior and feature wall cladding'],
+  ['19','Adhesives & Chemicals','Construction chemicals and adhesives'],
+  ['20','Other Materials','Tell us what your project needs']
+];
+
+const WHY = [
+  ['01','Quality-Focused Materials','We check specification and suitability before recommending a material.'],
+  ['02','Wide Material Categories','Structural and finishing categories through one coordinated team.'],
+  ['03','Multiple Brand Options','Brand options matched to your specification and budget.'],
+  ['04','Karnataka-Wide Supply','Supply coordinated for projects across Karnataka.'],
+  ['05','Practical Construction Understanding','We know how the material behaves once it reaches the site.'],
+  ['06','Complete Construction Support','Full civil construction execution when your project needs it.']
+];
+
+const SUPPLY = ['Tell Us What You Need','Understand Your Project','Recommend Suitable Materials','Prepare Your Quotation','Confirm Requirement','Coordinate Supply','Deliver to Site'];
+const CPROCESS = ['Consultation','Site Visit','Requirement Analysis','Planning & Estimation','Material Planning','Construction Execution','Quality Checks','Finishing','Handover'];
+
+const SCOPE = ['Residential Construction','Villa Construction','Commercial Construction','Foundation Work','RCC Work','Structural Work','Brickwork','Blockwork','Plastering','Flooring','Waterproofing','Electrical','Plumbing','Painting','Finishing','Renovation','Complete Project Execution'];
+
+const EST_CATS = ['Steel','Cement','Sand','Aggregate','Blocks','Bricks','RMC','Tiles','Plumbing','Electrical','Sanitary Ware','Doors & Windows','Paints','Other'];
+
+const PROJECTS = [
+  ['Courtyard Residence','Residential','Bengaluru, Karnataka','Material supply for a G+1 residence, from foundation to finishing stage.','Premium Indian residential house exterior','1621511075938-f03482369feb','Design Hills','designhills'],
+  ['Hillside Villa','Residential','Nandi Hills, Karnataka','Structural and finishing materials coordinated across a villa build.','Modern Indian villa exterior with landscaping','1536895058696-a69b1c7ba34f','Nathan Waters','nathangwaters'],
+  ['Grid Office Block','Commercial','Bengaluru, Karnataka','Cement, steel and RMC supply for a commercial office structure.','Indian commercial office building facade','1565008447742-97f6f38c985c','C Dustin','dianamia'],
+  ['Terrace Apartments','Construction','Mysuru, Karnataka','Complete civil construction execution for a small apartment block.','Apartment building under construction in India','1587582423116-ec07293f0395','Josh Olalde','josholalde'],
+  ['Legacy Home Retrofit','Renovation','Bengaluru, Karnataka','Renovation materials with waterproofing and finishing support.','Home renovation interior work in progress','1591955506264-3f5a6834570a','Ben Allan','ballonandon'],
+  ['Warehouse Shell','Commercial','Tumakuru, Karnataka','Aggregates, blocks and structural steel for a warehouse shell.','Industrial warehouse construction shell','1601074231509-dce351c05199','Ryunosuke Kikuno','ryunosuke_kikuno']
+];
+
+const TRUST = [
+  ['Quality Materials','M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6Z'],
+  ['Reliable Supply','M3 17V7h11v10M14 10h4l3 3v4M6 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4m11 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4'],
+  ['Karnataka-Wide Service','M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11Zm0-8.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z'],
+  ['Transparent Quotations','M7 3h10v18H7ZM10 8h4M10 12h4M10 16h2'],
+  ['Construction Expertise','M3 21h18M6 21V9l6-4 6 4v12M10 21v-6h4v6']
+];
+
+const PAGE = 'Projects.dc.html';
+
+class Component extends DCLogic {
+  state = {
+    w: typeof window !== 'undefined' ? window.innerWidth : 1440,
+    y: 0,
+    menu: false,
+    hash: '#home',
+    filter: 'All',
+    picked: ['Steel', 'Cement', 'Sand'],
+    quoteSent: false,
+    estSent: false,
+    contactSent: false
+  };
+
+  componentDidMount() {
+    let raf = 0;
+    const IDS = ['home', 'materials', 'construction', 'projects', 'about', 'resources', 'contact'];
+    this._onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const y = window.scrollY;
+        document.querySelectorAll('[data-parallax]').forEach(el => {
+          el.style.transform = 'translateY(' + Math.round(y * parseFloat(el.dataset.parallax || '0')) + 'px)';
+        });
+        const bar = document.getElementById('scroll-progress');
+        if (bar) {
+          const max = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+        }
+        let active = '#home';
+        IDS.forEach(id => {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= 160) active = '#' + id;
+        });
+        if (active !== this.state.hash || (y > 40) !== (this.state.y > 40)) {
+          this.setState({ y, hash: active });
+        } else {
+          this._y = y;
+        }
+      });
+    };
+    this._onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onResize);
+
+    const mode = this.props.motion || 'full';
+    const reveal = el => { el.style.opacity = '1'; el.style.transform = 'none'; };
+    const nodes = () => document.querySelectorAll('[data-reveal],[data-line]');
+    if (mode === 'off') {
+      setTimeout(() => {
+        document.querySelectorAll('image-slot[credit]').forEach(el => { if (el.getAttribute('src') && !el.hasAttribute('data-filled')) el.setAttribute('credit', el.getAttribute('credit')); });
+        nodes().forEach(reveal);
+      }, 30);
+      return;
+    }
+    const scale = mode === 'subtle' ? 0 : (window.innerWidth < 700 ? 0.6 : 1.2);
+    this._io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const d = Math.round(parseInt(e.target.getAttribute('data-delay') || '0', 10) * scale);
+        e.target.style.transitionDelay = d + 'ms';
+        reveal(e.target);
+        obs.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -4% 0px', threshold: 0.04 });
+
+    const attach = () => {
+      document.querySelectorAll('image-slot[credit]').forEach(el => { if (el.getAttribute('src') && !el.hasAttribute('data-filled')) el.setAttribute('credit', el.getAttribute('credit')); });
+      nodes().forEach(n => { if (!n.dataset.obs) { n.dataset.obs = '1'; this._io.observe(n); } });
+    };
+    this._attach = attach;
+    attach();
+    this._t1 = setTimeout(attach, 400);
+    this._t2 = setTimeout(attach, 1400);
+    this._t3 = setTimeout(() => {
+      const h = window.innerHeight;
+      nodes().forEach(n => { if (n.getBoundingClientRect().top < h) reveal(n); });
+    }, 4000);
+  }
+
+  componentDidUpdate() {
+    if (this._attach) this._attach();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onResize);
+    if (this._io) this._io.disconnect();
+    [this._t1, this._t2, this._t3].forEach(clearTimeout);
+  }
+
+  renderVals() {
+    const w = this.state.w;
+    const isDesktop = w >= 1000;
+    const navDefs = [['Home', 'Home.dc.html'], ['Materials', 'Materials.dc.html'], ['Construction', 'Construction.dc.html'], ['Projects', 'Projects.dc.html'], ['About', 'About.dc.html'], ['Contact', 'Contact.dc.html']];
+    const filter = this.state.filter;
+    const picked = this.state.picked;
+
+    return {
+      isDesktop,
+      isMobile: !isDesktop,
+      headerH: this.state.y > 60 ? '68px' : '88px',
+      menuOpen: this.state.menu,
+      toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      closeMenu: () => this.setState({ menu: false }),
+      parallax: Math.round(this.state.y * 0.035) + 'px',
+      showEstimator: this.props.showEstimator !== false,
+
+      nav: navDefs.map(([label, href]) => ({ label, href, on: href === PAGE ? 1 : 0 })),
+
+      brandGroups: [
+        { title: 'CEMENT', d: 0, items: ['UltraTech', 'ACC', 'Ambuja', 'Dalmia Bharat', 'Birla A1', 'JSW Cement'] },
+        { title: 'STEEL', d: 90, items: ['TATA Tiscon', 'JSW Neosteel', 'Jindal Panther', 'Kamdhenu', 'SAIL'] },
+        { title: 'FINISHING & FITTINGS', d: 180, items: ['Asian Paints', 'Berger', 'Dr. Fixit', 'Kajaria', 'Somany', 'Jaquar', 'Hindware', 'Astral', 'Supreme', 'Finolex', 'Havells', 'Anchor'] }
+      ],
+
+      trust: TRUST.map(([label, d]) => ({ label, d })),
+
+      materials: MATERIALS.map(([n, name, variants, desc, art, pid, who, user], i) => ({
+        n, name, variants, desc, art: 'MATERIAL ' + n + ' — ' + art,
+        slot: 'mat-' + n, delay: (i % 3) * 90,
+        src: pid ? U(pid) : undefined,
+        credit: pid ? P(who, user).credit : undefined,
+        href: pid ? P(who, user).href : undefined
+      })),
+
+      heroSrc: U(PHOTO.hero[0]),
+      heroCredit: P(PHOTO.hero[1], PHOTO.hero[2]).credit,
+      heroHref: P(PHOTO.hero[1], PHOTO.hero[2]).href,
+      civilSrc: U(PHOTO.civil[0]),
+      civilCredit: P(PHOTO.civil[1], PHOTO.civil[2]).credit,
+      civilHref: P(PHOTO.civil[1], PHOTO.civil[2]).href,
+      qualitySrc: U(PHOTO.quality[0]),
+      qualityCredit: P(PHOTO.quality[1], PHOTO.quality[2]).credit,
+      qualityHref: P(PHOTO.quality[1], PHOTO.quality[2]).href,
+
+      finishing: FINISHING.map(([n, name, desc]) => ({ n, name, desc })),
+
+      flow: [
+        ['01', 'You submit your requirement'],
+        ['02', 'Our team contacts you'],
+        ['03', 'We understand quantity, brand, spec, location and timeline'],
+        ['04', 'We prepare a suitable quotation'],
+        ['05', 'You confirm — supply is coordinated to site']
+      ].map(([n, t], i) => ({ n, t, d: i * 70 })),
+
+      estCats: EST_CATS.map(name => {
+        const on = picked.indexOf(name) > -1;
+        return {
+          name,
+          bg: on ? '#409804' : '#FBFBF9',
+          fg: on ? '#fff' : '#565656',
+          border: on ? '#409804' : '#DCDDD8',
+          toggle: () => this.setState({ picked: on ? picked.filter(p => p !== name) : picked.concat([name]) })
+        };
+      }),
+
+      why: WHY.map(([n, t, d2], i) => ({ n, t, d2, d: (i % 3) * 90 })),
+      supply: SUPPLY.map((t, i) => ({ n: '0' + (i + 1), t, d: i * 110 })),
+      cprocess: CPROCESS.map((t, i) => ({ n: '0' + (i + 1), t, d: (i % 5) * 80 })),
+      scope: SCOPE,
+      quality: ['Material Selection', 'Specification Awareness', 'Requirement Planning', 'Supply Coordination', 'Construction Support'],
+
+      filters: ['All', 'Residential', 'Commercial', 'Construction', 'Renovation'].map(label => ({
+        label,
+        bg: filter === label ? '#1B1C1A' : 'transparent',
+        fg: filter === label ? '#fff' : '#565656',
+        border: filter === label ? '#1B1C1A' : '#DCDDD8',
+        click: () => this.setState({ filter: label })
+      })),
+
+      shownProjects: PROJECTS.filter(p => filter === 'All' || p[1] === filter)
+        .map(([name, type, loc, desc, art, pid, who, user], i) => ({
+          name, type: type.toUpperCase(), loc, desc,
+          art: 'PROJECT — ' + art,
+          slot: 'proj-' + name.toLowerCase().replace(/[^a-z]+/g, '-'),
+          d: (i % 3) * 90,
+          src: pid ? U(pid) : undefined,
+          credit: pid ? P(who, user).credit : undefined,
+          href: pid ? P(who, user).href : undefined
+        })),
+
+      about: [
+        ['BASED IN', 'Bengaluru, Karnataka'],
+        ['SERVICE AREA', 'Karnataka'],
+        ['PRIMARY', 'Construction material supply'],
+        ['ALSO', 'Complete construction services'],
+        ['BUSINESS', 'GST registered']
+      ].map(([k, v]) => ({ k, v })),
+
+      testimonials: [
+        { q: 'Sample layout text. Replace with a real client quote about material quality and delivery timelines.', who: 'SAMPLE · AWAITING CLIENT QUOTE' },
+        { q: 'Sample layout text. Replace with a real client quote about site coordination and quotation clarity.', who: 'SAMPLE · AWAITING CLIENT QUOTE' },
+        { q: 'Sample layout text. Replace with a real client quote about end-to-end construction support.', who: 'SAMPLE · AWAITING CLIENT QUOTE' }
+      ],
+
+      contact: [
+        ['ADDRESS', 'No. 20, Saladoddi Grama,\nBengaluru Urban - 560082,\nBengaluru, Karnataka, India'],
+        ['PHONE', '+91 63637 03532'],
+        ['WHATSAPP', '+91 63637 03532'],
+        ['EMAIL', 'hello@dudeandco.in  (temporary)'],
+        ['SERVICE AREA', 'Karnataka']
+      ].map(([k, v]) => ({ k, v })),
+
+      footerCols: [
+        { title: 'NAVIGATION', items: navDefs.map(([label, href]) => ({ label, href })) },
+        { title: 'MATERIALS', items: ['Cement', 'TMT Steel', 'M-Sand', 'Bricks', 'Blocks', 'Aggregates', 'RMC', 'Finishing Materials'].map(label => ({ label, href: 'Materials.dc.html#materials' })) },
+        { title: 'CONSTRUCTION', items: ['Residential', 'Commercial', 'RCC', 'Civil Work', 'Finishing', 'Renovation'].map(label => ({ label, href: 'Construction.dc.html#construction' })) },
+        { title: 'CONTACT', items: [
+          { label: '+91 63637 03532', href: 'tel:+916363703532' },
+          { label: 'WhatsApp', href: 'https://wa.me/916363703532' },
+          { label: 'hello@dudeandco.in', href: 'mailto:hello@dudeandco.in' },
+          { label: 'Get a Free Quote', href: 'Contact.dc.html#quote' }
+        ] }
+      ],
+
+      quoteSent: this.state.quoteSent,
+      quoteOpen: !this.state.quoteSent,
+      submitQuote: e => { e.preventDefault(); this.setState({ quoteSent: true }); },
+      resetQuote: () => this.setState({ quoteSent: false }),
+
+      estSent: this.state.estSent,
+      estOpen: !this.state.estSent,
+      submitEst: e => { e.preventDefault(); this.setState({ estSent: true }); },
+      resetEst: () => this.setState({ estSent: false }),
+
+      contactSent: this.state.contactSent,
+      contactOpen: !this.state.contactSent,
+      submitContact: e => { e.preventDefault(); this.setState({ contactSent: true }); },
+      resetContact: () => this.setState({ contactSent: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
