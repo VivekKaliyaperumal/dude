@@ -41,7 +41,7 @@ export function Header() {
             shrunk ? "h-[68px]" : "h-[88px]",
           )}
         >
-          <Link href="/" className="flex flex-none items-center text-inherit" aria-label={`${site.brand.wordmark} — home`}>
+          <Link href="/" className="flex flex-none items-center text-inherit">
             <Wordmark strapline />
           </Link>
 

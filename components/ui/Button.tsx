@@ -16,12 +16,13 @@ const base =
   "inline-flex items-center justify-center gap-2.5 font-semibold whitespace-nowrap cursor-pointer transition-colors duration-300 motion-reduce:transition-none";
 
 const variants: Record<ButtonVariant, string> = {
-  green: "bg-green text-white hover:bg-ink dark-section:hover:bg-white dark-section:hover:text-ink",
-  ink: "bg-ink text-white hover:bg-green",
-  white: "bg-white text-ink hover:bg-green hover:text-white",
+  // Deeper brand green for white-on-green text: 6:1 contrast (the lighter #409804 is 3.7:1, below AA).
+  green: "bg-green-deep text-white hover:bg-ink dark-section:hover:bg-white dark-section:hover:text-ink",
+  ink: "bg-ink text-white hover:bg-green-deep",
+  white: "bg-white text-ink hover:bg-green-deep hover:text-white",
   outline: "border border-line-2 text-ink hover:border-green hover:text-green-deep",
   "outline-dark": "border border-dark-line-3 text-white hover:border-green hover:text-green",
-  "outline-green": "border border-green text-green hover:bg-green hover:text-white",
+  "outline-green": "border border-green text-green hover:bg-green-deep hover:text-white",
 };
 
 const sizes: Record<Size, string> = {

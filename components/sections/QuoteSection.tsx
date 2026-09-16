@@ -13,7 +13,7 @@ export function QuoteSection({ tall }: Props) {
   return (
     <section id="quote" className="relative overflow-hidden bg-paper py-section text-ink">
       <div aria-hidden className="pointer-events-none absolute -bottom-[18%] -left-[6%] w-[min(560px,70vw)] opacity-[.07]">
-        <Image src="/logo-mark.png" alt="" width={560} height={560} className="block w-full" />
+        <Image unoptimized src="/logo-mark.png" alt="" width={560} height={560} className="block w-full" />
       </div>
       <Container className="relative grid items-start gap-[clamp(30px,5vw,100px)] split:grid-cols-[minmax(0,42fr)_minmax(0,58fr)]">
         <Reveal>

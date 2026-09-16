@@ -20,7 +20,7 @@ export function MaterialsFull() {
   return (
     <section id="materials" className="relative overflow-hidden bg-paper py-section-lg">
       <div aria-hidden className="pointer-events-none absolute -bottom-[10%] -left-[18%] w-[min(760px,80vw)] opacity-[.07]">
-        <Image src="/logo-mark.png" alt="" width={760} height={760} className="block w-full" />
+        <Image unoptimized src="/logo-mark.png" alt="" width={760} height={760} className="block w-full" />
       </div>
       <Container className="relative">
         <SectionHeading

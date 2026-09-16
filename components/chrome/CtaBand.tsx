@@ -28,13 +28,13 @@ export function CtaBand({ image }: Props) {
           aria-hidden
           className="pointer-events-none absolute top-1/2 left-1/2 w-[min(1100px,120vw)] opacity-[.14]"
         >
-          <Image src="/logo-mark.png" alt="" width={1100} height={1100} className="block w-full" />
+          <Image unoptimized src="/logo-mark.png" alt="" width={1100} height={1100} className="block w-full" />
         </ParallaxLayer>
       )}
       <Container className="relative text-center">
         {image ? (
           <Reveal>
-            <Image src="/logo-mark.png" alt="" width={64} height={64} className="mx-auto mb-[26px] block h-16 w-16 object-contain" />
+            <Image unoptimized src="/logo-mark.png" alt="" width={64} height={64} className="mx-auto mb-[26px] block h-16 w-16 object-contain" />
           </Reveal>
         ) : null}
         <Reveal as="h2" className="text-cta font-bold">

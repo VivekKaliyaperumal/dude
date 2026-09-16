@@ -11,17 +11,31 @@ type Props = {
   imgClassName?: string;
   className?: string;
   credit?: boolean;
+  /** Unsplash quality (default 70). Lower for very large hero photos. */
+  quality?: number;
+  loading?: "eager" | "lazy";
+  fetchPriority?: "high" | "low" | "auto";
 };
 
 /**
  * Fills its (relatively positioned) parent. Renders the Unsplash credit the licence asks for,
  * and an honest empty frame (logo watermark, no text) when no photo exists yet.
  */
-export function ImageWithCredit({ image, sizes, priority, imgClassName, className, credit = true }: Props) {
+export function ImageWithCredit({
+  image,
+  sizes,
+  priority,
+  imgClassName,
+  className,
+  credit = true,
+  quality = 70,
+  loading,
+  fetchPriority,
+}: Props) {
   if (!image) {
     return (
       <div aria-hidden className={cn("absolute inset-0 grid place-items-center bg-well", className)}>
-        <Image src="/logo-mark.png" alt="" width={120} height={120} className="w-[28%] max-w-[120px] opacity-[.08]" />
+        <Image unoptimized src="/logo-mark.png" alt="" width={120} height={120} className="w-[28%] max-w-[120px] opacity-[.08]" />
       </div>
     );
   }
@@ -33,7 +47,9 @@ export function ImageWithCredit({ image, sizes, priority, imgClassName, classNam
         fill
         sizes={sizes}
         priority={priority}
-        quality={70}
+        loading={loading}
+        fetchPriority={fetchPriority}
+        quality={quality}
         className={cn("object-cover", imgClassName)}
       />
       {credit && image.credit ? <Credit credit={image.credit} /> : null}
@@ -41,7 +57,7 @@ export function ImageWithCredit({ image, sizes, priority, imgClassName, classNam
   );
 }
 
-function Credit({ credit }: { credit: NonNullable<SiteImage["credit"]> }) {
+export function Credit({ credit }: { credit: NonNullable<SiteImage["credit"]> }) {
   const links = creditLinks(credit);
   const linkCls = "text-white underline-offset-2 hover:underline focus-visible:underline";
   return (

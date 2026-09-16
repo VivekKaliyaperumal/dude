@@ -94,7 +94,7 @@ function EstimatorFormInner({ onReset }: { onReset: () => void }) {
                 onClick={() => toggle(name)}
                 className={cn(
                   "min-h-11 border px-3.5 py-[9px] text-[12.5px] font-medium transition-colors duration-300 hover:border-green motion-reduce:transition-none",
-                  on ? "border-green bg-green text-white" : "border-line-2 bg-card text-muted",
+                  on ? "border-green-deep bg-green-deep text-white" : "border-line-2 bg-card text-muted",
                 )}
               >
                 {name}

@@ -1,15 +1,25 @@
 import Image from "next/image";
+import { preload } from "react-dom";
 import { images } from "@/content/images";
 import { routes } from "@/content/nav";
 import { site } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
-import { ImageWithCredit } from "@/components/ui/ImageWithCredit";
+import { Credit } from "@/components/ui/ImageWithCredit";
+import imageLoader from "@/lib/images/loader";
 
 const up = (delay: string) => ({ animationDelay: delay });
 
+// The hero sits under a heavy dark scrim, so phones can take a smaller rendition without
+// visible loss. Preloaded with fetchpriority=high so the LCP image wins the bandwidth race.
+const HERO_SIZES = "(max-width: 700px) 60vw, 100vw";
+const HERO_QUALITY = 50;
+const HERO_WIDTHS = [640, 750, 828, 1080, 1200, 1920, 2048];
+
 export function HomeHero() {
+  const srcSet = HERO_WIDTHS.map((w) => `${imageLoader({ src: images.hero.src, width: w, quality: HERO_QUALITY })} ${w}w`).join(", ");
+  preload(images.hero.src, { as: "image", fetchPriority: "high", imageSizes: HERO_SIZES, imageSrcSet: srcSet });
   return (
     <section
       id="home"
@@ -17,7 +27,18 @@ export function HomeHero() {
       className="relative flex min-h-[min(92vh,860px)] items-center overflow-hidden bg-ink pt-[clamp(96px,12vw,132px)] text-white"
     >
       <div className="animate-zoom-out absolute inset-0 overflow-hidden">
-        <ImageWithCredit image={images.hero} sizes="100vw" priority />
+        {/* Plain <img> so the single preload above matches exactly (next/image would add a second, lower-priority preload). */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={imageLoader({ src: images.hero.src, width: 1080, quality: HERO_QUALITY })}
+          srcSet={srcSet}
+          sizes={HERO_SIZES}
+          alt={images.hero.alt}
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        {images.hero.credit ? <Credit credit={images.hero.credit} /> : null}
       </div>
       <div
         aria-hidden
@@ -25,7 +46,7 @@ export function HomeHero() {
       />
       <div aria-hidden className="grid-overlay-light pointer-events-none absolute inset-0" />
       <div aria-hidden className="pointer-events-none absolute top-1/2 right-[3%] w-[min(600px,37vw)] -translate-y-1/2 opacity-[.22]">
-        <Image src="/logo-mark.png" alt="" width={600} height={600} className="mx-auto block w-[74%]" />
+        <Image unoptimized src="/logo-mark.png" alt="" width={600} height={600} className="mx-auto block w-[74%]" />
       </div>
 
       <Container className="relative">

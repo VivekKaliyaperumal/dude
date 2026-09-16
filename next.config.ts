@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     // The custom loader serves Unsplash sizes from Unsplash's CDN (see lib/images/loader.ts).
     loader: "custom",
     loaderFile: "./lib/images/loader.ts",
+    qualities: [50, 60, 70, 75],
   },
 };
 

@@ -7,7 +7,7 @@ import { Icon } from "@/components/ui/Icon";
 export function StickyBar() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-[80] grid grid-cols-[1fr_auto] gap-px border-t border-dark-line bg-ink nav:hidden">
-      <Link href={routes.quote} className="bg-green p-4 text-center text-[15px] font-semibold text-white">
+      <Link href={routes.quote} className="bg-green-deep p-4 text-center text-[15px] font-semibold text-white">
         Get Free Quote
       </Link>
       <a

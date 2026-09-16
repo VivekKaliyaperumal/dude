@@ -56,7 +56,7 @@ export function MobileMenu({ open, onClose }: Props) {
       </nav>
 
       <div className="mt-auto flex flex-col gap-3 pt-7">
-        <Link href={routes.quote} onClick={onClose} className="bg-green p-[17px] text-center font-semibold text-white">
+        <Link href={routes.quote} onClick={onClose} className="bg-green-deep p-[17px] text-center font-semibold text-white">
           Get a Free Quote
         </Link>
         <a

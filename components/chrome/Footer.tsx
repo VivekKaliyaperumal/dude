@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer data-theme="dark" className="relative overflow-hidden bg-footer pt-[clamp(48px,6vw,86px)] text-on-dark">
       <div aria-hidden className="pointer-events-none absolute -right-[8%] -bottom-[30%] w-[min(560px,70vw)] opacity-[.11]">
-        <Image src="/logo-mark.png" alt="" width={560} height={560} className="block w-full" />
+        <Image unoptimized src="/logo-mark.png" alt="" width={560} height={560} className="block w-full" />
       </div>
       <div className="container-site relative">
         <Reveal
@@ -28,7 +28,7 @@ export function Footer() {
             <p className="mt-1.5 font-mono text-[10.5px] tracking-[.14em] text-on-dark-3">GSTIN {site.gstin}</p>
           </div>
           {footerColumns.map((col) => (
-            <nav key={col.title} aria-label={col.title.toLowerCase()}>
+            <nav key={col.title} aria-label={`Footer: ${col.title.toLowerCase()}`}>
               <span className="font-mono text-[10px] tracking-[.16em] text-on-dark-3">{col.title}</span>
               <ul className="mt-4 flex flex-col gap-[9px]">
                 {col.items.map((item) => (

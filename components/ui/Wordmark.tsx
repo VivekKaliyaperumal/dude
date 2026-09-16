@@ -8,13 +8,13 @@ export function Wordmark({ tone = "ink", strapline = false, size = 34, className
   return (
     <span className={cn("flex items-center gap-[11px]", className)}>
       <Image
+        unoptimized
         src="/logo-mark.png"
         alt=""
         width={size}
         height={size}
         className="block object-contain"
         style={{ width: size, height: size }}
-        priority={size >= 34}
       />
       <span className="flex flex-col leading-none">
         <span
