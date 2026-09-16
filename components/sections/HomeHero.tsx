@@ -13,8 +13,8 @@ const up = (delay: string) => ({ animationDelay: delay });
 
 // The hero sits under a heavy dark scrim, so phones can take a smaller rendition without
 // visible loss. Preloaded with fetchpriority=high so the LCP image wins the bandwidth race.
-const HERO_SIZES = "(max-width: 700px) 60vw, 100vw";
-const HERO_QUALITY = 50;
+const HERO_SIZES = "(max-width: 700px) 55vw, 100vw";
+const HERO_QUALITY = 45;
 const HERO_WIDTHS = [640, 750, 828, 1080, 1200, 1920, 2048];
 
 export function HomeHero() {
