@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, Cinzel, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
+import { jsonLdString, localBusinessJsonLd } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/chrome/Footer";
 import { Header } from "@/components/chrome/Header";
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <div aria-hidden className="h-[57px] nav:hidden" />
         <WhatsAppFab />
         <StickyBar />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(localBusinessJsonLd()) }} />
       </body>
     </html>
   );
