@@ -30,6 +30,8 @@ type CellProps = {
   tone?: "light" | "dark";
   /** md: 26px bronze numeral, 19px title (Why grid). sm: 11px gold label, 16px title (process grid). */
   size?: "md" | "sm";
+  /** numeral (default) or a small mono label such as "CEMENT". */
+  nStyle?: "numeral" | "label";
   delay?: number;
   headingLevel?: "h3" | "h4";
   className?: string;
@@ -42,6 +44,7 @@ export function HairlineCell({
   body,
   tone = "light",
   size = "md",
+  nStyle = "numeral",
   delay = 0,
   headingLevel = "h3",
   className,
@@ -62,7 +65,11 @@ export function HairlineCell({
         <span
           className={cn(
             "block font-mono",
-            size === "md" ? "text-[26px] tracking-[-.02em] text-bronze" : "text-[11px] tracking-[.14em] text-gold",
+            nStyle === "label"
+              ? "text-[10px] tracking-[.16em] text-bronze"
+              : size === "md"
+                ? "text-[26px] tracking-[-.02em] text-bronze"
+                : "text-[11px] tracking-[.14em] text-gold",
           )}
         >
           {n}

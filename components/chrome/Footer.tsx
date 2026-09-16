@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer data-theme="dark" className="relative overflow-hidden bg-footer pt-[clamp(48px,6vw,86px)] text-on-dark">
       <div aria-hidden className="pointer-events-none absolute -right-[8%] -bottom-[30%] w-[min(560px,70vw)] opacity-[.11]">
-        <Image src="/logo-mark.png" alt="" width={560} height={590} className="block w-full" />
+        <Image src="/logo-mark.png" alt="" width={560} height={560} className="block w-full" />
       </div>
       <div className="container-site relative">
         <Reveal

@@ -28,7 +28,7 @@ export function CtaBand({ image }: Props) {
           aria-hidden
           className="pointer-events-none absolute top-1/2 left-1/2 w-[min(1100px,120vw)] opacity-[.14]"
         >
-          <Image src="/logo-mark.png" alt="" width={1100} height={1160} className="block w-full" />
+          <Image src="/logo-mark.png" alt="" width={1100} height={1100} className="block w-full" />
         </ParallaxLayer>
       )}
       <Container className="relative text-center">

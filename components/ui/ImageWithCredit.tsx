@@ -21,7 +21,7 @@ export function ImageWithCredit({ image, sizes, priority, imgClassName, classNam
   if (!image) {
     return (
       <div aria-hidden className={cn("absolute inset-0 grid place-items-center bg-well", className)}>
-        <Image src="/logo-mark.png" alt="" width={120} height={126} className="w-[28%] max-w-[120px] opacity-[.08]" />
+        <Image src="/logo-mark.png" alt="" width={120} height={120} className="w-[28%] max-w-[120px] opacity-[.08]" />
       </div>
     );
   }

@@ -1,11 +1,13 @@
 import { flags } from "@/content/flags";
+import { termsAndConditions } from "@/content/legal";
 import { buildMetadata } from "@/lib/seo";
 import { CtaBand } from "@/components/chrome/CtaBand";
 import { PageHero } from "@/components/chrome/PageHero";
+import { LegalClauses } from "@/components/sections/LegalClauses";
 
 export const metadata = buildMetadata({
-  title: "Terms & Conditions",
-  description: "The terms that apply to this website, enquiries submitted through it, and quotations issued by dude & Co.",
+  title: termsAndConditions.title,
+  description: termsAndConditions.lede,
   path: "/terms",
   noindex: !flags.legalBodies,
 });
@@ -13,11 +15,8 @@ export const metadata = buildMetadata({
 export default function TermsPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Legal"
-        title="Terms & Conditions"
-        lede="The terms that apply to this website, enquiries submitted through it, and quotations issued by dude & Co."
-      />
+      <PageHero eyebrow="Legal" title={termsAndConditions.title} lede={termsAndConditions.lede} />
+      <LegalClauses doc={termsAndConditions} />
       <CtaBand />
     </>
   );

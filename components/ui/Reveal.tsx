@@ -3,7 +3,7 @@
 import { useEffect, useRef, type HTMLAttributes, type ReactNode } from "react";
 import { observe } from "@/lib/reveal/observer";
 
-type Tag = "div" | "section" | "article" | "p" | "span" | "h2" | "h3" | "h4" | "li" | "figure" | "header" | "footer";
+type Tag = "div" | "section" | "article" | "p" | "span" | "h2" | "h3" | "h4" | "ul" | "ol" | "li" | "figure" | "header" | "footer";
 
 type Props = HTMLAttributes<HTMLElement> & {
   as?: Tag;

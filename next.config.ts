@@ -4,9 +4,10 @@ const nextConfig: NextConfig = {
   images: {
     // Stock photography is a stop-gap until dude & Co. supplies its own site photos.
     // Every remote image is declared in content/images.ts and rendered through
-    // components/ui/ImageWithCredit so the credit + referral requirements are met.
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
-    qualities: [70, 75],
+    // components/ui/ImageWithCredit so the Unsplash credit requirement is met.
+    // The custom loader serves Unsplash sizes from Unsplash's CDN (see lib/images/loader.ts).
+    loader: "custom",
+    loaderFile: "./lib/images/loader.ts",
   },
 };
 
