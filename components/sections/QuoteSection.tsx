@@ -45,7 +45,7 @@ export function QuoteSection({ tall }: Props) {
           </p>
         </Reveal>
 
-        <Reveal delay={140} className="border border-line bg-white p-[clamp(24px,3.2vw,46px)]">
+        <Reveal delay={140} className="border border-line bg-white p-panel">
           <QuoteForm tall={tall} />
         </Reveal>
       </Container>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { flags } from "@/content/flags";
-import { site } from "@/content/site";
+import { liveSocialProfiles, site } from "@/content/site";
 
 export const siteUrl = site.url;
 
@@ -35,7 +35,7 @@ export function buildMetadata({ title, description, path, absoluteTitle, noindex
 /**
  * schema.org LocalBusiness built only from verified facts in content/site.ts.
  * Deliberately omitted until confirmed: ratings, reviews, opening hours, price range,
- * geo coordinates, social profiles.
+ * geo coordinates. Social profiles (`sameAs`) appear only once their URLs are confirmed in content/site.ts.
  */
 export function localBusinessJsonLd() {
   return {
@@ -46,6 +46,7 @@ export function localBusinessJsonLd() {
     slogan: site.brand.tagline,
     description: site.description,
     url: siteUrl,
+    ...(liveSocialProfiles.length > 0 ? { sameAs: liveSocialProfiles.map((p) => p.href) } : {}),
     logo: new URL("/logo-mark.png", siteUrl).toString(),
     image: new URL("/logo-mark.png", siteUrl).toString(),
     telephone: site.phone.e164,

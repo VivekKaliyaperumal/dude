@@ -29,6 +29,8 @@ Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SITE_URL` to the real d
 | `lib/enquiry/` | Validation schema, rate limit, and `transport.ts` — the only file to change to send enquiries somewhere real. |
 | `design/` | The prototype pages (`*.dc.html`) kept as the copy reference. Not served. |
 
+Vertical spacing deliberately differs from the prototype since 18-Sep-2026: its 116px section padding left a third of a ~730px-tall desktop viewport blank at every boundary. The six `--spacing-*` tokens in `app/globals.css` are the single dial: sections use `py-section` (`-lg`, `-sm`, `band`), a section heading is followed by `mt-block`, and bordered panels/cards use `p-panel`. Add new sections with those utilities rather than ad-hoc `clamp()` values.
+
 ## Content flags
 
 Nothing invented ships. Sections that need real content stay off until it exists:
@@ -43,6 +45,8 @@ Nothing invented ships. Sections that need real content stay off until it exists
 | `estimator` | on | — |
 
 Flip a flag in `content/flags.ts`, or per deployment with `NEXT_PUBLIC_FLAG_<NAME>=1`.
+
+Social profiles: `socialProfiles` in `content/site.ts` lists Facebook, Instagram, YouTube and X (Twitter), the set the owner asked for, with empty URLs. The footer shows each as a placeholder tile that does not link anywhere; paste the confirmed profile URL and it becomes a real link and joins the JSON-LD `sameAs`.
 
 ## Enquiry forms
 

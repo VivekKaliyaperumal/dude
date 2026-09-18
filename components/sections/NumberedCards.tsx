@@ -30,7 +30,7 @@ export function NumberedCards({ id, eyebrow, title, lede, items, tone = "light",
     >
       <Container>
         <SectionHeading layout="split" eyebrow={eyebrow} title={title} lede={lede} tone={tone} />
-        <HairlineGrid tone={tone} minCol={minCol} className="mt-[clamp(32px,4vw,56px)]">
+        <HairlineGrid tone={tone} minCol={minCol} className="mt-block">
           {items.map((it, i) => (
             <HairlineCell
               key={it.n}

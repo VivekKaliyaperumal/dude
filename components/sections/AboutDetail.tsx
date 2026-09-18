@@ -25,7 +25,7 @@ export function AboutDetail() {
           <KeyValueGrid items={aboutKeyValues} className="mt-8" />
         </Reveal>
         <Reveal delay={120} className="flex flex-col gap-4">
-          <div className="flex items-start gap-4 border border-line bg-white p-[clamp(24px,3vw,36px)]">
+          <div className="flex items-start gap-4 border border-line bg-white p-panel">
             <Icon name="shield" size={26} className="flex-none text-green" />
             <div>
               <h3 className="text-[19px] font-bold tracking-[-.02em] text-ink">{aboutCopy.gstTitle}</h3>
@@ -33,7 +33,7 @@ export function AboutDetail() {
             </div>
           </div>
           {showTestimonials ? (
-            <div className="border border-line bg-white p-[clamp(24px,3vw,36px)]">
+            <div className="border border-line bg-white p-panel">
               <h3 className="text-[19px] font-bold tracking-[-.02em] text-ink">What Clients Say</h3>
               <div className="mt-4 flex flex-col gap-4">
                 {testimonials.map((t) => (

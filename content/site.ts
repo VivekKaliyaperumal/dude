@@ -38,4 +38,21 @@ export const site = {
     "dude & Co. supplies construction materials across Karnataka — cement, TMT steel, M-sand, aggregates, bricks, AAC blocks, RMC and finishing materials — and undertakes complete civil construction. Based in Bengaluru. GST registered business.",
 } as const;
 
-export const addressOneLine = site.address.lines.join(", ");
+export type SocialIcon = "facebook" | "instagram" | "youtube" | "x" | "linkedin";
+export type SocialProfile = { name: string; icon: SocialIcon; href: string };
+
+/**
+ * Social profiles, in the order the owner asked for (18-Sep-2026). URLs are to confirm —
+ * paste the full profile URL (e.g. "https://www.instagram.com/<handle>"). While an href is
+ * empty the footer shows the icon as a placeholder that does not link anywhere, and the
+ * profile is left out of the JSON-LD `sameAs`. Fill the URL and both switch on.
+ */
+export const socialProfiles: readonly SocialProfile[] = [
+  { name: "Facebook", icon: "facebook", href: "" },
+  { name: "Instagram", icon: "instagram", href: "" },
+  { name: "YouTube", icon: "youtube", href: "" },
+  { name: "X (Twitter)", icon: "x", href: "" },
+];
+
+/** Only the profiles with a confirmed URL. */
+export const liveSocialProfiles: readonly SocialProfile[] = socialProfiles.filter((p) => p.href !== "");

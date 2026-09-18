@@ -1,6 +1,3 @@
-import { flags } from "./flags";
-import { site } from "./site";
-
 export type NavItem = { label: string; href: string; external?: boolean };
 
 export const routes = {
@@ -16,6 +13,7 @@ export const routes = {
   contactForm: "/contact#contact",
   materialsList: "/materials#materials",
   constructionScope: "/construction#construction",
+  estimate: "/#resources",
 } as const;
 
 export const primaryNav: NavItem[] = [
@@ -27,32 +25,11 @@ export const primaryNav: NavItem[] = [
   { label: "Contact", href: routes.contact },
 ];
 
-export type FooterColumn = { title: string; items: NavItem[] };
-
-const contactItems: NavItem[] = [
-  { label: site.phone.display, href: site.phone.tel, external: true },
-  { label: "WhatsApp", href: site.phone.whatsapp, external: true },
-  ...(flags.emailPublic ? [{ label: site.email, href: `mailto:${site.email}`, external: true }] : []),
-  { label: "Get a Free Quote", href: routes.quote },
-];
-
-export const footerColumns: FooterColumn[] = [
-  { title: "NAVIGATION", items: primaryNav },
-  {
-    title: "MATERIALS",
-    items: ["Cement", "TMT Steel", "M-Sand", "Bricks", "Blocks", "Aggregates", "RMC", "Finishing Materials"].map(
-      (label) => ({ label, href: routes.materialsList }),
-    ),
-  },
-  {
-    title: "CONSTRUCTION",
-    items: ["Residential", "Commercial", "RCC", "Civil Work", "Finishing", "Renovation"].map((label) => ({
-      label,
-      href: routes.constructionScope,
-    })),
-  },
-  { title: "CONTACT", items: contactItems },
-];
+/*
+ * The footer lists primaryNav under "Explore" and builds its Contact column from content/site.ts.
+ * The earlier Materials / Construction footer columns (14 labels that all pointed at the same two
+ * anchors) were removed on 18-Sep-2026 at the owner's request.
+ */
 
 export const legalLinks: NavItem[] = [
   { label: "Privacy Policy", href: routes.privacy },

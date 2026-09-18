@@ -17,9 +17,9 @@ export function LegalClauses({ doc }: { doc: LegalDocument }) {
             ? `This page sets out how ${doc.title.toLowerCase()} applies when you use this website or send us an enquiry.`
             : "The approved wording for this page is being finalised. The headings below show what it will cover. Until then, please call or WhatsApp us with any question about how we handle your information or enquiries."}
         </Reveal>
-        <ol className="mt-[clamp(28px,4vw,48px)] flex flex-col gap-4">
+        <ol className="mt-block flex flex-col gap-4">
           {doc.clauses.map((c, i) => (
-            <Reveal as="li" key={c.n} delay={(i % 3) * 80} className="border border-line bg-white p-[clamp(22px,3vw,36px)]">
+            <Reveal as="li" key={c.n} delay={(i % 3) * 80} className="border border-line bg-white p-panel">
               <span className="font-mono text-[11px] tracking-[.14em] text-bronze">{c.n}</span>
               <h2 className="mt-2.5 text-[20px] font-bold tracking-[-.02em] text-ink">{c.heading}</h2>
               {showBodies && c.body ? (

@@ -25,12 +25,12 @@ export function MaterialsSection() {
           titleClassName="text-[clamp(30px,4.4vw,54px)] max-w-[22ch]"
           lede="Source essential construction materials through one coordinated team, with options across major material categories and brands."
         />
-        <div className="mt-[clamp(36px,5vw,64px)] grid gap-[clamp(16px,1.6vw,24px)]" style={materialsGridStyle}>
+        <div className="mt-block grid gap-[clamp(16px,1.6vw,24px)]" style={materialsGridStyle}>
           {homeMaterials.map((m, i) => (
             <MaterialCard key={m.n} material={m} delay={(i % 3) * 90} />
           ))}
         </div>
-        <Reveal className="mt-[clamp(30px,4vw,48px)] flex flex-wrap items-center justify-between gap-4 border-t border-line-2 pt-[26px]">
+        <Reveal className="mt-block flex flex-wrap items-center justify-between gap-4 border-t border-line-2 pt-5">
           <p className="max-w-[60ch] text-sm text-muted">{materialsCopy.homeFootnote}</p>
           <Button href={routes.materialsList} variant="ink" arrow className="px-[26px] py-[15px] text-[14.5px]">
             View All Materials

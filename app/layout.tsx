@@ -57,8 +57,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main id="main">{children}</main>
         <Footer />
-        {/* Spacer so the mobile sticky bar never covers footer links. */}
-        <div aria-hidden className="h-[57px] nav:hidden" />
         <aside aria-label="Quick contact">
           <WhatsAppFab />
           <StickyBar />

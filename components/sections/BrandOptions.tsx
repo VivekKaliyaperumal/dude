@@ -16,7 +16,7 @@ export function BrandOptions() {
           titleClassName="text-[clamp(30px,4.2vw,58px)]"
           lede="We can help you source products from suitable brands based on your project requirements, specifications and budget."
         />
-        <div className="mt-[clamp(36px,4.5vw,64px)] flex flex-col gap-[clamp(28px,3.5vw,44px)]">
+        <div className="mt-block flex flex-col gap-[clamp(28px,3.5vw,44px)]">
           {groups.map((g, gi) => (
             <Reveal key={g.title} delay={gi * 90}>
               <div className="flex items-baseline gap-3.5">

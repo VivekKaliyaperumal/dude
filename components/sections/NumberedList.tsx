@@ -25,7 +25,7 @@ export function NumberedList({ eyebrow, title, lede, rows, tone = "light", bg = 
     >
       <Container>
         <SectionHeading layout="split" eyebrow={eyebrow} title={title} lede={lede} tone={tone} />
-        <NumberedRows rows={rows} tone={tone} className="mt-[clamp(32px,4vw,56px)]" />
+        <NumberedRows rows={rows} tone={tone} className="mt-block" />
         {children}
       </Container>
     </section>

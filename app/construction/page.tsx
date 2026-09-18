@@ -24,7 +24,8 @@ export default function ConstructionPage() {
   return (
     <>
       <PageHero eyebrow="Civil construction" title="Complete Construction Support." lede={lede} />
-      <CivilConstructionSection />
+      {/* No photo banner here: the PageHero above already introduces the page. */}
+      <CivilConstructionSection banner={false} />
       <NumberedCards
         tone="dark"
         eyebrow="Scope of services"

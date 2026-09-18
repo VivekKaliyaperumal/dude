@@ -19,7 +19,7 @@ export function AboutSummary() {
           lede={aboutCopy.summaryLede}
           ledeClassName="text-[16.5px] text-mid max-w-[50ch]"
         />
-        <KeyValueGrid items={homeKeyValues} className="mt-[clamp(32px,4vw,56px)]" delay={160} />
+        <KeyValueGrid items={homeKeyValues} className="mt-block" delay={160} />
         <GstStrip />
       </Container>
     </section>
@@ -41,14 +41,16 @@ export function KeyValueGrid({
       className={className}
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
+        // 380px minimum gives 3 columns in the 1320px container (6 facts = 2 full rows), 2 on tablets, 1 on phones.
+        // At 300px the home grid had 4 columns and a second row of 2 cells beside 2 empty grey ones.
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 380px), 1fr))",
         gap: 1,
         background: "var(--color-line)",
         border: "1px solid var(--color-line)",
       }}
     >
       {items.map((a) => (
-        <div key={a.k} className="bg-card px-[22px] py-[clamp(22px,2.4vw,30px)] transition-colors duration-300 hover:bg-white motion-reduce:transition-none">
+        <div key={a.k} className="bg-card px-[22px] py-[clamp(18px,2vw,24px)] transition-colors duration-300 hover:bg-white motion-reduce:transition-none">
           <span className="font-mono text-[10px] tracking-[.16em] text-bronze">{a.k}</span>
           <p className="mt-3 text-[17px] leading-[1.3] font-bold tracking-[-.018em] text-ink">{a.v}</p>
         </div>
@@ -62,7 +64,7 @@ function GstStrip() {
     <Reveal
       delay={220}
       data-theme="dark"
-      className="mt-px grid items-center gap-[clamp(18px,3vw,40px)] bg-ink p-[clamp(24px,3vw,40px)] text-white"
+      className="mt-px grid items-center gap-[clamp(18px,3vw,40px)] bg-ink p-panel text-white"
       style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))" }}
     >
       <div className="flex items-start gap-4">

@@ -12,7 +12,7 @@ export function Testimonials() {
       <Container>
         <SectionHeading eyebrow="Client voices" title="What Clients Say." titleClassName="text-[clamp(30px,4.2vw,58px)]" />
         <div
-          className="mt-[clamp(36px,4.5vw,56px)] grid items-center gap-[clamp(16px,2vw,24px)]"
+          className="mt-block grid items-center gap-[clamp(16px,2vw,24px)]"
           style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))" }}
         >
           {testimonials.map((t, i) => (
@@ -21,7 +21,7 @@ export function Testimonials() {
               as="figure"
               delay={i * 100}
               className={cn(
-                "m-0 border bg-white p-[clamp(26px,3vw,40px)] transition-[transform,box-shadow] duration-[400ms] hover:-translate-y-1.5 hover:shadow-lift motion-reduce:transition-none",
+                "m-0 border bg-white p-panel transition-[transform,box-shadow] duration-[400ms] hover:-translate-y-1.5 hover:shadow-lift motion-reduce:transition-none",
                 t.featured ? "border-green-tint shadow-lift split:-translate-y-2" : "border-line",
               )}
             >

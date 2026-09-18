@@ -12,7 +12,7 @@ export function ContactSection() {
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 330px), 1fr))" }}
       >
         <ContactDetails />
-        <Reveal delay={120} className="border border-line bg-paper p-[clamp(24px,3.2vw,46px)]">
+        <Reveal delay={120} className="border border-line bg-paper p-panel">
           <ContactForm />
         </Reveal>
       </Container>

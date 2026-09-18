@@ -17,7 +17,7 @@ export function WhySection({ id }: Props) {
           lede="We understand construction from the material stage to the actual site."
           ledeClassName="max-w-[42ch]"
         />
-        <HairlineGrid minCol={360} className="mt-[clamp(32px,4vw,56px)]">
+        <HairlineGrid minCol={360} className="mt-block">
           {why.map((w, i) => (
             <HairlineCell key={w.n} n={w.n} title={w.title} body={w.body} delay={(i % 3) * 90} />
           ))}

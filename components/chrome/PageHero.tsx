@@ -10,7 +10,8 @@ export function PageHero({ eyebrow, title, lede, className }: Props) {
     <section
       data-theme="dark"
       className={cn(
-        "relative overflow-hidden bg-ink pt-[clamp(104px,13vw,158px)] pb-[clamp(44px,5vw,76px)] text-white",
+        // Top padding clears the 88px fixed header with ~36px to spare at desktop widths.
+        "relative overflow-hidden bg-ink pt-[clamp(96px,10vw,124px)] pb-[clamp(32px,4vw,52px)] text-white",
         className,
       )}
     >

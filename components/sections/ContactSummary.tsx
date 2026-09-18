@@ -59,7 +59,7 @@ export function ContactSummary() {
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 330px), 1fr))" }}
       >
         <ContactDetails />
-        <Reveal delay={120} className="flex flex-col justify-center gap-4 border border-line bg-paper p-[clamp(26px,3.4vw,44px)]">
+        <Reveal delay={120} className="flex flex-col justify-center gap-4 border border-line bg-paper p-panel">
           <span className="font-mono text-[10.5px] tracking-[.16em] text-muted">SEND AN ENQUIRY</span>
           <h3 className="text-[clamp(22px,2.4vw,30px)] font-bold tracking-[-.025em] text-ink">
             Tell us about your project and we will come back with the right materials and a quotation.

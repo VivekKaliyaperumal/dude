@@ -57,7 +57,7 @@ function EstimatorFormInner({ onReset }: { onReset: () => void }) {
       style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))" }}
     >
       <HiddenFields kind="estimate" />
-      <div className="border-b border-line p-[clamp(22px,3vw,40px)] split:border-r split:border-b-0">
+      <div className="border-b border-line p-panel split:border-r split:border-b-0">
         <span className="block font-mono text-[10.5px] tracking-[.16em] text-muted">{formCopy.estimate.step1}</span>
         {state.status === "error" ? (
           <div className="mt-4">
@@ -79,7 +79,7 @@ function EstimatorFormInner({ onReset }: { onReset: () => void }) {
         </div>
       </div>
 
-      <div className="flex flex-col p-[clamp(22px,3vw,40px)]">
+      <div className="flex flex-col p-panel">
         <span id="est-categories-label" className="block font-mono text-[10.5px] tracking-[.16em] text-muted">
           {formCopy.estimate.step2}
         </span>

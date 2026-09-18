@@ -8,7 +8,7 @@ export function FaqSection({ items }: { items: readonly FaqItem[] }) {
     <section className="border-t border-line bg-white py-section" aria-labelledby="faq-heading">
       <Container>
         <SectionHeading id="faq-heading" layout="split" eyebrow={faqCopy.eyebrow} title={faqCopy.title} lede={faqCopy.lede} />
-        <div className="mt-[clamp(32px,4vw,56px)]">
+        <div className="mt-block">
           <Faq items={items} />
         </div>
       </Container>

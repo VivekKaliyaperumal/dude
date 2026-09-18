@@ -8,14 +8,21 @@ type GridProps = HTMLAttributes<HTMLDivElement> & {
   tone?: "light" | "dark";
   /** auto-fit (default) stretches to fill; auto-fill keeps column width. */
   mode?: "auto-fit" | "auto-fill";
+  /**
+   * Fixed responsive columns as Tailwind classes (e.g. "grid-cols-1 tight:grid-cols-3"). Replaces the
+   * minCol auto-fit template; use it when the item count would otherwise leave a partly filled last row.
+   */
+  columns?: string;
 };
 
 /** 1px hairline grid: cells sit on a `line` background with gap-px, like the prototype. */
-export function HairlineGrid({ minCol = 360, tone = "light", mode = "auto-fit", className, style, ...rest }: GridProps) {
-  const s: CSSProperties = { gridTemplateColumns: `repeat(${mode}, minmax(min(100%, ${minCol}px), 1fr))`, ...style };
+export function HairlineGrid({ minCol = 360, tone = "light", mode = "auto-fit", columns, className, style, ...rest }: GridProps) {
+  const s: CSSProperties = columns
+    ? { ...style }
+    : { gridTemplateColumns: `repeat(${mode}, minmax(min(100%, ${minCol}px), 1fr))`, ...style };
   return (
     <div
-      className={cn("grid gap-px border", tone === "dark" ? "bg-dark-line border-dark-line" : "bg-line border-line", className)}
+      className={cn("grid gap-px border", tone === "dark" ? "bg-dark-line border-dark-line" : "bg-line border-line", columns, className)}
       style={s}
       {...rest}
     />
@@ -57,7 +64,7 @@ export function HairlineCell({
       className={cn(
         "transition-colors duration-300 motion-reduce:transition-none",
         tone === "dark" ? "bg-ink hover:bg-dark-hover" : "bg-white hover:bg-card",
-        size === "md" ? "p-[clamp(24px,2.6vw,36px)]" : "px-5 pt-6 pb-[30px]",
+        size === "md" ? "p-[clamp(20px,2.2vw,30px)]" : "px-5 pt-5 pb-6",
         className,
       )}
     >

@@ -16,7 +16,7 @@ export function EstimatorSection() {
             Share your basic project details and our team can help you understand the material requirements.
           </p>
         </Reveal>
-        <Reveal delay={120} className="mt-[clamp(30px,4vw,52px)] border border-line bg-white">
+        <Reveal delay={120} className="mt-block border border-line bg-white">
           <EstimatorForm />
         </Reveal>
       </Container>

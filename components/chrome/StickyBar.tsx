@@ -3,7 +3,7 @@ import { routes } from "@/content/nav";
 import { site } from "@/content/site";
 import { Icon } from "@/components/ui/Icon";
 
-/** Mobile-only sticky bottom bar. The layout adds a 57px spacer so it never covers the footer. */
+/** Mobile-only sticky bottom bar. The footer carries 57px of bottom padding below the nav breakpoint so this never covers its links. */
 export function StickyBar() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-[80] grid grid-cols-[1fr_auto] gap-px border-t border-dark-line bg-ink nav:hidden">

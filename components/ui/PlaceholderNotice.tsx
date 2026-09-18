@@ -16,7 +16,7 @@ export function PlaceholderNotice({ eyebrow, children, cta, tone = "light", clas
   return (
     <div
       className={cn(
-        "flex flex-col gap-4 border p-[clamp(24px,3.2vw,40px)]",
+        "flex flex-col gap-4 border p-panel",
         tone === "dark" ? "border-dark-line-2 bg-ink text-white" : "border-line bg-white text-ink",
         className,
       )}

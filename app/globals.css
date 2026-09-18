@@ -47,10 +47,14 @@
   --breakpoint-split: 56.25rem; /* 900px — two-column sections collapse below this */
   --breakpoint-nav: 62.5rem; /* 1000px — desktop navigation */
   --spacing-gutter: clamp(18px, 4vw, 56px);
-  --spacing-section: clamp(60px, 8vw, 116px);
-  --spacing-section-lg: clamp(64px, 9vw, 130px);
-  --spacing-section-sm: clamp(52px, 7vw, 96px);
-  --spacing-band: clamp(70px, 10vw, 150px);
+  /* Vertical rhythm. Tightened from the prototype on 18-Sep-2026: the owner previews at ~1508x730 CSS px,
+     where the prototype's 116px section padding left a third of the screen blank at every boundary. */
+  --spacing-section: clamp(44px, 5.5vw, 80px);
+  --spacing-section-lg: clamp(48px, 6vw, 92px);
+  --spacing-section-sm: clamp(36px, 4.5vw, 64px);
+  --spacing-band: clamp(56px, 7vw, 104px);
+  --spacing-block: clamp(26px, 3vw, 44px); /* section heading → body (mt-block) */
+  --spacing-panel: clamp(20px, 2.6vw, 36px); /* bordered panel / card padding (p-panel) */
   --container-site: 1320px;
 
   /* fluid type: size / line-height / letter-spacing */
