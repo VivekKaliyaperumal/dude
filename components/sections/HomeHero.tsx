@@ -39,9 +39,11 @@ export function HomeHero() {
     <section
       id="home"
       data-theme="dark"
-      className="relative flex min-h-[min(92vh,860px)] items-center overflow-hidden bg-ink pt-[clamp(96px,12vw,132px)] text-white"
+      className="relative flex min-h-[min(100svh,960px)] items-center overflow-hidden bg-ink pt-[clamp(96px,8vw,104px)] text-white"
     >
-      {/* No animated wrapper here: a transform animation would open a stacking context and trap the
+      {/* The hero is exactly one screen tall (capped at 960px on very tall displays): the fold lands on its bottom
+          edge, so the whole section, caption chip included, is in view without scrolling.
+          No animated wrapper here: a transform animation would open a stacking context and trap the
           credit / pause control beneath the (transparent) copy container, making them unclickable. */}
       <HeroSlideshow slides={slides} sizes={HERO_SIZES} />
       {/* Scrim: on phones the copy spans the whole width, so a near-uniform tint keeps white text readable over
@@ -56,8 +58,9 @@ export function HomeHero() {
       </div>
 
       <Container className="relative">
-        {/* Extra bottom room on phones so the photo credit / slideshow control never sits under the GST line. */}
-        <div className="max-w-[820px] pt-[clamp(28px,5vw,70px)] pb-[clamp(52px,5vw,70px)]">
+        {/* Kept tight so the whole hero, GST line included, stays above the fold on ~700px-tall desktop viewports
+            (e.g. a 1080p screen at 125% zoom). The bottom padding keeps the photo caption / slideshow control clear of the GST line. */}
+        <div className="max-w-[820px] pt-[clamp(20px,2vw,32px)] pb-13 tight:pb-11">
           <div className="animate-up-in flex items-center gap-3" style={{ ...up("0.15s"), animationDuration: "0.8s" }}>
             <span aria-hidden className="h-px w-[38px] bg-gold" />
             <span className="eyebrow text-gold">{site.brand.tagline}</span>
