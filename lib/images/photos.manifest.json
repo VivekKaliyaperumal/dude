@@ -1,0 +1,42 @@
+{
+  "hero/foxconn-elephant-01": {
+    "width": 1272,
+    "height": 884,
+    "widths": [
+      640,
+      960,
+      1272
+    ],
+    "hash": "51e6edaa"
+  },
+  "hero/foxconn-elephant-02": {
+    "width": 1266,
+    "height": 901,
+    "widths": [
+      640,
+      960,
+      1266
+    ],
+    "hash": "ccf629f4"
+  },
+  "hero/foxconn-elephant-03": {
+    "width": 1275,
+    "height": 825,
+    "widths": [
+      640,
+      960,
+      1275
+    ],
+    "hash": "f3f31516"
+  },
+  "hero/foxconn-elephant-04": {
+    "width": 1255,
+    "height": 779,
+    "widths": [
+      640,
+      960,
+      1255
+    ],
+    "hash": "82b54309"
+  }
+}

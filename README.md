@@ -52,7 +52,11 @@ Quote, material estimate and contact forms all call `submitEnquiry`. It rejects 
 
 ## Photography
 
-All photos are Unsplash stock as a stop-gap. `ImageWithCredit` renders the photographer credit Unsplash requires, and `lib/images/loader.ts` serves sized variants straight from Unsplash's CDN. Replace them with dude & Co.'s own site photos before launch by editing `content/images.ts`.
+**Own photos** live as originals in `photos/` (never served). `pnpm photos` renders each one to WebP at several widths in `public/photos/` and writes `lib/images/photos.manifest.json`; the custom loader in `lib/images/loader.ts` picks the rendition nearest the requested width and appends a content hash so renditions cache for a year. To add a photo: drop the original in `photos/<area>/`, run `pnpm photos`, commit the outputs, and reference it as `/photos/<area>/<name>` in `content/images.ts`. Photos are never upscaled, so supply the largest original available (a full-bleed hero wants 1920 px or wider).
+
+**Home hero** is a crossfading slideshow (`components/sections/HeroSlideshow.tsx`) of four photos of Foxconn's Project Elephant campus, Bengaluru, from the 18-Apr-2025 post by Karnataka Development Index (@IndexKarnataka). The page shows only the caption "Project Elephant, Foxconn — Bengaluru"; the photographer credit was removed at the owner's request on 18-Sep-2026. X serves them at about 1270 px wide, which is the largest rendition available. **Permission from the poster to reuse them is to confirm before launch**, as is the wording of any claim about dude & Co.'s role on that project (none is made today). Only the first slide is preloaded (LCP); the rest load after it. The slideshow pauses off-screen, in hidden tabs and under reduced motion, and has a pause/play control.
+
+**Everything else** is still Unsplash stock as a stop-gap. `ImageWithCredit` renders the photographer credit Unsplash requires, and the loader serves sized variants straight from Unsplash's CDN. Replace them the same way before launch.
 
 ## Deploy (Vercel)
 

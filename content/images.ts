@@ -1,24 +1,65 @@
 /**
  * Every photograph on the site, keyed by where it is used.
  *
- * All current photos are Unsplash stock — a stop-gap until dude & Co. supplies its own
- * site photography. Unsplash requires a visible credit, which ImageWithCredit renders.
- * To replace a photo with a real one: drop the file in public/photos/, point `src` at it
- * and remove `credit`. Nothing else needs to change.
+ * Own photos live as originals under photos/ and are referenced as "/photos/<key>"; `pnpm photos`
+ * renders the WebP sizes the loader serves (see scripts/photos.mjs). Everything still marked
+ * Unsplash is stock — a stop-gap until dude & Co. supplies its own site photography. Stock
+ * photos carry a visible credit, which ImageWithCredit / Credit renders; a `caption` is shown
+ * in the same chip with or without a credit.
+ *
+ * To replace a stock photo with a real one: drop the original in photos/<area>/, run
+ * `pnpm photos`, point `src` at "/photos/<area>/<name>" and remove `credit`.
  */
-export type ImageCredit = { name: string; handle: string; source: "Unsplash" };
-export type SiteImage = { src: string; alt: string; credit?: ImageCredit };
+export type ImageCredit =
+  | { name: string; handle: string; source: "Unsplash" }
+  /** A photo reposted from X with the poster's permission (to confirm); `url` is the post. */
+  | { name: string; handle: string; source: "X"; url: string };
+export type SiteImage = {
+  src: string;
+  alt: string;
+  credit?: ImageCredit;
+  /** Short factual caption shown with the credit — what and where, nothing promotional. */
+  caption?: string;
+};
 
 const unsplash = (id: string, width = 1600) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${width}&q=70`;
 const by = (name: string, handle: string): ImageCredit => ({ name, handle, source: "Unsplash" });
+const photo = (key: string) => `/photos/${key}`;
+
+/**
+ * Home hero: Foxconn's "Project Elephant" campus, Bengaluru, photographed 18-Apr-2025.
+ * Source: https://x.com/IndexKarnataka/status/1913074229421158648 (Karnataka Development Index).
+ * X serves them at ~1270 px wide at most, so that is the largest rendition available.
+ * The on-page photographer credit was removed at the owner's request on 18-Sep-2026; reuse
+ * permission is still to confirm with the poster before launch (README → Photography).
+ */
+const foxconnCaption = "Project Elephant, Foxconn — Bengaluru";
 
 export const images = {
-  hero: {
-    src: unsplash("1533378890784-b2a5b0a59d40", 2000),
-    alt: "Reinforcement bars being laid in a grid on a construction site",
-    credit: by("Saad Salim", "saadx"),
-  },
+  /** Slideshow order; the first slide is the LCP image and is preloaded. */
+  heroSlides: [
+    {
+      src: photo("hero/foxconn-elephant-01"),
+      alt: "Foxconn Project Elephant, Bengaluru: the D-series building's facade nearing completion, with cement bags and site machinery in the foreground",
+      caption: foxconnCaption,
+    },
+    {
+      src: photo("hero/foxconn-elephant-02"),
+      alt: "Two blocks of the Project Elephant campus under construction against a clear blue sky",
+      caption: foxconnCaption,
+    },
+    {
+      src: photo("hero/foxconn-elephant-03"),
+      alt: "Tower cranes above the Project Elephant site, with several blocks rising in the distance",
+      caption: foxconnCaption,
+    },
+    {
+      src: photo("hero/foxconn-elephant-04"),
+      alt: "A Project Elephant block seen past a tree and the site's blue hoarding",
+      caption: foxconnCaption,
+    },
+  ],
   civilBanner: {
     src: unsplash("1531834685032-c34bf0d84c77", 2000),
     alt: "Residential building under construction, wide view of the site",
@@ -105,7 +146,7 @@ export const images = {
     },
   },
 } satisfies {
-  hero: SiteImage;
+  heroSlides: readonly SiteImage[];
   civilBanner: SiteImage;
   quality: SiteImage;
   ctaBand: SiteImage;
@@ -116,8 +157,11 @@ export const images = {
 export type MaterialImageKey = keyof typeof images.materials;
 export type ProjectImageKey = keyof typeof images.projects;
 
-/** Unsplash asks for referral parameters on credit links. */
+/** Where the credit's two links go. Unsplash asks for referral parameters on its links. */
 export function creditLinks(credit: ImageCredit) {
+  if (credit.source === "X") {
+    return { photographer: `https://x.com/${credit.handle}`, source: credit.url };
+  }
   const utm = "utm_source=dudeandco&utm_medium=referral";
   return {
     photographer: `https://unsplash.com/@${credit.handle}?${utm}`,

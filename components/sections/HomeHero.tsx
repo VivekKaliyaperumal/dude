@@ -1,48 +1,54 @@
 import Image from "next/image";
 import { preload } from "react-dom";
-import { images } from "@/content/images";
+import { images, type SiteImage } from "@/content/images";
 import { routes } from "@/content/nav";
 import { site } from "@/content/site";
+import { HeroSlideshow, type HeroSlide } from "@/components/sections/HeroSlideshow";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
-import { Credit } from "@/components/ui/ImageWithCredit";
 import imageLoader from "@/lib/images/loader";
+import { photoEntry } from "@/lib/images/photos";
 
 const up = (delay: string) => ({ animationDelay: delay });
 
-// The hero sits under a heavy dark scrim, so phones can take a smaller rendition without
-// visible loss. Preloaded with fetchpriority=high so the LCP image wins the bandwidth race.
-const HERO_SIZES = "(max-width: 700px) 55vw, 100vw";
-const HERO_QUALITY = 45;
-const HERO_WIDTHS = [640, 750, 828, 1080, 1200, 1920, 2048];
+// Full-width photo at every viewport, served at the largest rendition the source has (the
+// Project Elephant photos top out at ~1270 px, X's original size). Own photos take their width
+// ladder from the manifest; the fallback ladder is only for a remote (Unsplash) source.
+const HERO_SIZES = "100vw";
+const HERO_QUALITY = 70;
+const FALLBACK_WIDTHS = [640, 960, 1280, 1920];
+
+function toSlide(image: SiteImage): HeroSlide {
+  const widths = photoEntry(image.src)?.widths ?? FALLBACK_WIDTHS;
+  const url = (width: number) => imageLoader({ src: image.src, width, quality: HERO_QUALITY });
+  return {
+    src: url(widths[widths.length - 1]),
+    srcSet: widths.map((w) => `${url(w)} ${w}w`).join(", "),
+    alt: image.alt,
+    credit: image.credit,
+    caption: image.caption,
+  };
+}
 
 export function HomeHero() {
-  const srcSet = HERO_WIDTHS.map((w) => `${imageLoader({ src: images.hero.src, width: w, quality: HERO_QUALITY })} ${w}w`).join(", ");
-  preload(images.hero.src, { as: "image", fetchPriority: "high", imageSizes: HERO_SIZES, imageSrcSet: srcSet });
+  const slides = images.heroSlides.map(toSlide);
+  // Only the first slide is preloaded: it is the LCP image. The rest load after it (HeroSlideshow).
+  preload(slides[0].src, { as: "image", fetchPriority: "high", imageSizes: HERO_SIZES, imageSrcSet: slides[0].srcSet });
   return (
     <section
       id="home"
       data-theme="dark"
       className="relative flex min-h-[min(92vh,860px)] items-center overflow-hidden bg-ink pt-[clamp(96px,12vw,132px)] text-white"
     >
-      <div className="animate-zoom-out absolute inset-0 overflow-hidden">
-        {/* Plain <img> so the single preload above matches exactly (next/image would add a second, lower-priority preload). */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={imageLoader({ src: images.hero.src, width: 1080, quality: HERO_QUALITY })}
-          srcSet={srcSet}
-          sizes={HERO_SIZES}
-          alt={images.hero.alt}
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        {images.hero.credit ? <Credit credit={images.hero.credit} /> : null}
-      </div>
+      {/* No animated wrapper here: a transform animation would open a stacking context and trap the
+          credit / pause control beneath the (transparent) copy container, making them unclickable. */}
+      <HeroSlideshow slides={slides} sizes={HERO_SIZES} />
+      {/* Scrim: on phones the copy spans the whole width, so a near-uniform tint keeps white text readable over
+          bright skies; from 700px the copy sits left, so the tint eases off towards the right and lets the photo show. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgb(27_28_26/.92)_0%,rgb(27_28_26/.78)_45%,rgb(27_28_26/.55)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(27_28_26/.82)_0%,rgb(27_28_26/.9)_100%)] tight:bg-[linear-gradient(90deg,rgb(27_28_26/.92)_0%,rgb(27_28_26/.78)_45%,rgb(27_28_26/.45)_100%)]"
       />
       <div aria-hidden className="grid-overlay-light pointer-events-none absolute inset-0" />
       <div aria-hidden className="pointer-events-none absolute top-1/2 right-[3%] w-[min(600px,37vw)] -translate-y-1/2 opacity-[.22]">
@@ -50,7 +56,8 @@ export function HomeHero() {
       </div>
 
       <Container className="relative">
-        <div className="max-w-[820px] py-[clamp(28px,5vw,70px)]">
+        {/* Extra bottom room on phones so the photo credit / slideshow control never sits under the GST line. */}
+        <div className="max-w-[820px] pt-[clamp(28px,5vw,70px)] pb-[clamp(52px,5vw,70px)]">
           <div className="animate-up-in flex items-center gap-3" style={{ ...up("0.15s"), animationDuration: "0.8s" }}>
             <span aria-hidden className="h-px w-[38px] bg-gold" />
             <span className="eyebrow text-gold">{site.brand.tagline}</span>

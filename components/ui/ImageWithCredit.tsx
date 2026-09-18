@@ -11,14 +11,14 @@ type Props = {
   imgClassName?: string;
   className?: string;
   credit?: boolean;
-  /** Unsplash quality (default 70). Lower for very large hero photos. */
+  /** Unsplash quality (default 70). Lower for very large hero photos. Ignored for own photos (fixed at build). */
   quality?: number;
   loading?: "eager" | "lazy";
   fetchPriority?: "high" | "low" | "auto";
 };
 
 /**
- * Fills its (relatively positioned) parent. Renders the Unsplash credit the licence asks for,
+ * Fills its (relatively positioned) parent. Renders the credit a borrowed photo requires,
  * and an honest empty frame (logo watermark, no text) when no photo exists yet.
  */
 export function ImageWithCredit({
@@ -52,24 +52,55 @@ export function ImageWithCredit({
         quality={quality}
         className={cn("object-cover", imgClassName)}
       />
-      {credit && image.credit ? <Credit credit={image.credit} /> : null}
+      {(credit && image.credit) || image.caption ? (
+        <Credit credit={credit ? image.credit : undefined} caption={image.caption} />
+      ) : null}
     </div>
   );
 }
 
-export function Credit({ credit }: { credit: NonNullable<SiteImage["credit"]> }) {
-  const links = creditLinks(credit);
+type CreditProps = {
+  /** Photographer credit for a borrowed photo. Omit for own photos that only carry a caption. */
+  credit?: SiteImage["credit"];
+  /** Optional factual caption ("Project Elephant, Foxconn — Bengaluru"). */
+  caption?: string;
+  /** Pinned to the frame's bottom-left corner (default). Pass false to lay it out yourself. */
+  floating?: boolean;
+  className?: string;
+};
+
+/** The small mono chip: "[caption][ · ]Photo by <name> on <source>". Renders nothing if given neither. */
+export function Credit({ credit, caption, floating = true, className }: CreditProps) {
+  if (!credit && !caption) return null;
+  const links = credit ? creditLinks(credit) : null;
   const linkCls = "text-white underline-offset-2 hover:underline focus-visible:underline";
   return (
-    <span className="absolute bottom-2 left-2 z-[1] bg-ink/70 px-2 py-1 font-mono text-[10px] tracking-[.04em] text-on-dark backdrop-blur-[2px]">
-      Photo by{" "}
-      <a href={links.photographer} target="_blank" rel="noopener noreferrer" className={linkCls}>
-        {credit.name}
-      </a>{" "}
-      on{" "}
-      <a href={links.source} target="_blank" rel="noopener noreferrer" className={linkCls}>
-        {credit.source}
-      </a>
+    <span
+      className={cn(
+        "z-[1] bg-ink/70 px-2 py-1 font-mono text-[10px] tracking-[.04em] text-on-dark backdrop-blur-[2px]",
+        floating && "absolute bottom-2 left-2",
+        className,
+      )}
+    >
+      {/* Caption and credit together only fit from the 700px breakpoint; phones keep the credit alone. */}
+      {caption ? (
+        <span className={cn("text-white", credit && "hidden tight:inline")}>
+          {caption}
+          {credit ? " · " : null}
+        </span>
+      ) : null}
+      {credit && links ? (
+        <>
+          Photo by{" "}
+          <a href={links.photographer} target="_blank" rel="noopener noreferrer" className={linkCls}>
+            {credit.name}
+          </a>{" "}
+          on{" "}
+          <a href={links.source} target="_blank" rel="noopener noreferrer" className={linkCls}>
+            {credit.source}
+          </a>
+        </>
+      ) : null}
     </span>
   );
 }

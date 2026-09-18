@@ -1,6 +1,15 @@
 import type { SVGProps } from "react";
 
-type Name = "phone" | "phone-handset" | "whatsapp" | "whatsapp-outline" | "shield" | "check-circle" | "close";
+type Name =
+  | "phone"
+  | "phone-handset"
+  | "whatsapp"
+  | "whatsapp-outline"
+  | "shield"
+  | "check-circle"
+  | "close"
+  | "pause"
+  | "play";
 
 type Props = SVGProps<SVGSVGElement> & { name: Name; size?: number };
 
@@ -53,6 +62,19 @@ export function Icon({ name, size = 16, ...rest }: Props) {
       return (
         <svg {...common} fill="none" stroke="currentColor" strokeWidth={1.8}>
           <path d="M6 6l12 12M18 6 6 18" />
+        </svg>
+      );
+    case "pause":
+      return (
+        <svg {...common} fill="currentColor">
+          <rect x="6" y="5" width="4" height="14" rx="1" />
+          <rect x="14" y="5" width="4" height="14" rx="1" />
+        </svg>
+      );
+    case "play":
+      return (
+        <svg {...common} fill="currentColor">
+          <path d="M7 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 7 5.5Z" />
         </svg>
       );
   }

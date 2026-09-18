@@ -46,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        {/* Stock photos come from Unsplash until own site photography exists. */}
+        {/* Photos outside the hero are still Unsplash stock until own site photography exists. */}
         <link rel="preconnect" href="https://images.unsplash.com" />
         {/* Marks JS as available before first paint so scroll-reveal can start hidden; without JS everything stays visible. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
