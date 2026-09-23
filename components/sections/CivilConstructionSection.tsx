@@ -68,12 +68,12 @@ export function CivilConstructionSection({ banner = true }: Props) {
           <p className="max-w-[40ch] text-[clamp(17px,1.8vw,22px)] leading-[1.5] font-medium tracking-[-.015em] text-white">
             {constructionCopy.statement}
           </p>
-          <div className="mt-[34px] grid grid-cols-[1fr_auto_1fr] items-center gap-3.5 border border-dark-line-2 p-[22px]">
+          <div className="mt-[34px] grid grid-cols-1 items-center gap-3.5 border border-dark-line-2 p-[22px] tight:grid-cols-[1fr_auto_1fr]">
             <div>
               <span className="font-mono text-[10px] tracking-[.16em] text-on-dark-2">PRIMARY</span>
               <p className="mt-[7px] text-[15px] font-semibold text-green">MATERIAL SUPPLY</p>
             </div>
-            <span aria-hidden className="text-xl text-on-dark-2">
+            <span aria-hidden className="justify-self-center text-xl text-on-dark-2">
               +
             </span>
             <div>
