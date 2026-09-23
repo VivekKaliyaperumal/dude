@@ -26,7 +26,7 @@ export function Wordmark({ tone = "ink", strapline = false, size = 34, className
           {site.brand.wordmark}
         </span>
         {strapline ? (
-          <span className="mt-1 font-mono text-[8.5px] tracking-[.22em] text-muted">{site.brand.strapline}</span>
+          <span className="mt-1 hidden font-mono text-[8.5px] tracking-[.22em] text-muted min-[25rem]:block">{site.brand.strapline}</span>
         ) : null}
       </span>
     </span>

@@ -37,7 +37,7 @@ export function Header() {
         />
         <div
           className={cn(
-            "container-site flex items-center gap-7 transition-[height] duration-[450ms] ease-out-expo motion-reduce:transition-none",
+            "container-site flex items-center gap-4 transition-[height] duration-[450ms] ease-out-expo tight:gap-7 motion-reduce:transition-none",
             shrunk ? "h-[68px]" : "h-[88px]",
           )}
         >
