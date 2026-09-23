@@ -26,7 +26,7 @@ export function MobileMenu({ open, onClose }: Props) {
       aria-modal="true"
       aria-label="Menu"
       data-theme="dark"
-      className="animate-fade-in fixed inset-0 z-[95] flex flex-col bg-ink px-[clamp(18px,6vw,40px)] py-[26px] text-white"
+      className="animate-fade-in fixed inset-0 z-[95] flex flex-col overflow-y-auto overscroll-contain bg-ink px-gutter pt-[22px] pb-[26px] text-white"
     >
       <div className="flex items-center justify-between">
         <Wordmark tone="white" />
@@ -47,7 +47,7 @@ export function MobileMenu({ open, onClose }: Props) {
             key={item.href}
             href={item.href}
             onClick={onClose}
-            className="animate-up-in border-b border-dark-line py-3.5 text-[clamp(26px,8vw,34px)] font-semibold tracking-[-.02em] text-white"
+            className="animate-up-in border-b border-dark-line py-3.5 text-[clamp(26px,8vw,34px)] leading-[1.15] font-semibold tracking-[-.02em] text-white"
             style={{ animationDelay: `${i * 40}ms`, animationDuration: "0.6s" }}
           >
             {item.label}
