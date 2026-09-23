@@ -36,8 +36,9 @@ function Shell({ id, label, required, error, className, children }: ShellProps) 
   );
 }
 
+// 16px below `tight`: iOS Safari zooms the page when a focused control is under 16px.
 const control =
-  "w-full border bg-card px-4 text-sm text-ink transition-colors focus:border-green motion-reduce:transition-none";
+  "w-full border bg-card px-4 text-base text-ink transition-colors focus:border-green tight:text-sm motion-reduce:transition-none";
 const controlState = (error?: string) => (error ? "border-bronze" : "border-line-2");
 const height = (tall?: boolean) => (tall ? "h-[62px]" : "h-12");
 
