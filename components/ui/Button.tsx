@@ -12,8 +12,9 @@ export type ButtonVariant =
 
 type Size = "xs" | "sm" | "md" | "lg";
 
+// Labels may wrap (centred) below `tight`, where long CTAs outgrow the ~284-354px content column.
 const base =
-  "inline-flex items-center justify-center gap-2.5 font-semibold whitespace-nowrap cursor-pointer transition-colors duration-300 motion-reduce:transition-none";
+  "inline-flex items-center justify-center gap-2.5 text-center font-semibold cursor-pointer transition-colors duration-300 tight:whitespace-nowrap motion-reduce:transition-none";
 
 const variants: Record<ButtonVariant, string> = {
   // Deeper brand green for white-on-green text: 6:1 contrast (the lighter #409804 is 3.7:1, below AA).
