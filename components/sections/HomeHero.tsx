@@ -59,14 +59,16 @@ export function HomeHero() {
 
       <Container className="relative">
         {/* Kept tight so the whole hero, GST line included, stays above the fold on ~700px-tall desktop viewports
-            (e.g. a 1080p screen at 125% zoom). The bottom padding keeps the photo caption / slideshow control clear of the GST line. */}
-        <div className="max-w-[820px] pt-[clamp(20px,2vw,32px)] pb-13 tight:pb-11">
+            (e.g. a 1080p screen at 125% zoom). Below `nav` the StickyBar overlays the viewport bottom and the
+            caption/pause row rides above it at 65px, so the bottom padding grows to 96px to keep the GST line
+            clear of both; from `nav` up neither exists and pb returns to the desktop value. */}
+        <div className="max-w-[820px] pt-2 pb-[96px] tight:pt-[clamp(20px,2vw,32px)] nav:pb-11">
           <div className="animate-up-in flex items-center gap-3" style={{ ...up("0.15s"), animationDuration: "0.8s" }}>
             <span aria-hidden className="h-px w-[38px] bg-gold" />
             <span className="eyebrow text-gold">{site.brand.tagline}</span>
           </div>
 
-          <h1 className="mt-[22px] text-display font-bold">
+          <h1 className="mt-4 text-display font-bold tight:mt-[22px]">
             <span className="block overflow-hidden">
               <span className="animate-mask-in block" style={up("0.3s")}>
                 Everything You Need
@@ -79,7 +81,7 @@ export function HomeHero() {
             </span>
           </h1>
 
-          <p className="animate-up-in mt-[22px] max-w-[46ch] text-[clamp(15px,1.4vw,18px)] leading-[1.55] text-on-dark" style={up("0.6s")}>
+          <p className="animate-up-in mt-4 max-w-[46ch] text-[clamp(15px,1.4vw,18px)] leading-[1.55] text-on-dark tight:mt-[22px]" style={up("0.6s")}>
             Quality construction materials, reliable supply, and complete construction support — from one trusted partner.
           </p>
           <p className="animate-up-in mt-3.5 max-w-[52ch] text-[14.5px] leading-[1.6] text-on-dark-2" style={up("0.7s")}>
@@ -87,7 +89,7 @@ export function HomeHero() {
             across Karnataka, with complete construction execution when required.
           </p>
 
-          <div className="animate-up-in mt-8 flex flex-wrap gap-3" style={up("0.82s")}>
+          <div className="animate-up-in mt-6 flex flex-wrap gap-3 tight:mt-8" style={up("0.82s")}>
             <Button href={routes.quote} variant="green" arrow>
               Get a Free Quote
             </Button>
@@ -95,11 +97,11 @@ export function HomeHero() {
               Explore Materials
             </Button>
           </div>
-          <p className="animate-up-in mt-4 text-[12.5px] text-on-dark-2" style={up("0.92s")}>
+          <p className="animate-up-in mt-3 text-[12.5px] text-on-dark-2 tight:mt-4" style={up("0.92s")}>
             Talk to our team. We&rsquo;ll understand your requirement and prepare the right quotation.
           </p>
 
-          <div className="animate-up-in mt-[26px] flex items-center gap-2.5 border-t border-dark-line pt-[22px]" style={up("1s")}>
+          <div className="animate-up-in mt-4 flex items-center gap-2.5 border-t border-dark-line pt-4 tight:mt-[26px] tight:pt-[22px]" style={up("1s")}>
             <Icon name="shield" size={15} className="text-gold" />
             <span className="font-mono text-[11px] tracking-[.14em] text-gold">GST REGISTERED • {site.gstin}</span>
           </div>

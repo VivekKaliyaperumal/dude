@@ -137,7 +137,8 @@ export function HeroSlideshow({ slides, sizes, interval = 7000 }: Props) {
         );
       })}
 
-      <div className="absolute bottom-2 left-2 z-[1] flex max-w-[calc(100%-16px)] items-stretch gap-1">
+      {/* Below `nav` the 57px StickyBar overlays the viewport bottom, so the caption/pause row rides above it. */}
+      <div className="absolute bottom-[65px] left-2 z-[1] flex max-w-[calc(100%-16px)] items-stretch gap-1 nav:bottom-2">
         <Credit credit={current.credit} caption={current.caption} floating={false} />
         {many && extras ? (
           <button
