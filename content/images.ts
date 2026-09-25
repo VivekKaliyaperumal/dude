@@ -91,11 +91,6 @@ export const images = {
       alt: "Close-up of manufactured sand",
       credit: by("Kenny", "kennyzhang29"),
     },
-    riverSand: {
-      src: unsplash("1534171472159-edb6d1e0b63c"),
-      alt: "River sand heap at a supply yard",
-      credit: by("jim gade", "jimgade"),
-    },
     aggregates: {
       src: unsplash("1670789741624-9cdf7006b38c"),
       alt: "Close-up of granite aggregate stones",

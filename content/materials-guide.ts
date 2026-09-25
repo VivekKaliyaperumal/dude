@@ -25,8 +25,8 @@ export const materialGuide: readonly GuideCell[] = [
   },
   {
     label: "SAND",
-    title: "M-sand vs river sand",
-    body: "Manufactured sand is crushed and graded granite, so its quality is consistent batch to batch. Concrete M-sand is coarser; plastering M-sand is finer and washed. River sand is regulated in Karnataka and supplied only when available. Both should meet the grading zones in IS 383.",
+    title: "Manufactured sand (M-sand)",
+    body: "Manufactured sand is crushed and graded granite, so its quality is consistent batch to batch. Concrete M-sand is coarser; plastering M-sand is finer and washed. It should meet the grading zones in IS 383.",
   },
   {
     label: "AGGREGATE",
