@@ -12,7 +12,7 @@ import { NumberedList } from "@/components/sections/NumberedList";
 import { SupplyProcessSection } from "@/components/sections/SupplyProcessSection";
 
 const lede =
-  "Cement, steel, sand, aggregates, blocks, bricks and ready mix concrete — sourced and coordinated through one team across Karnataka.";
+  "Cement, steel, sand, aggregates, blocks, bricks and ready mix concrete, through to plywood, laminates, hardware and other interior materials — sourced and coordinated through one team across Karnataka.";
 
 export const metadata = buildMetadata({
   title: "Construction Materials, From Foundation to Finishing",

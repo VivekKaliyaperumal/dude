@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { finishingMaterials, materialsCopy, structuralMaterials } from "@/content/materials";
+import { finishingMaterials, interiorMaterials, materialsCopy, structuralMaterials } from "@/content/materials";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -15,7 +15,7 @@ function GroupDivider({ label }: { label: string }) {
   );
 }
 
-/** Materials page: all 9 structural + 11 finishing categories. */
+/** Materials page: every structural, finishing and interior category. */
 export function MaterialsFull() {
   return (
     <section id="materials" className="relative overflow-hidden bg-paper py-section-lg">
@@ -40,6 +40,12 @@ export function MaterialsFull() {
         <GroupDivider label="Finishing & building materials" />
         <div className="mt-5 grid gap-[clamp(16px,1.6vw,24px)]" style={materialsGridStyle}>
           {finishingMaterials.map((m, i) => (
+            <MaterialCard key={m.n} material={m} delay={(i % 3) * 90} />
+          ))}
+        </div>
+        <GroupDivider label="Interior materials" />
+        <div className="mt-5 grid gap-[clamp(16px,1.6vw,24px)]" style={materialsGridStyle}>
+          {interiorMaterials.map((m, i) => (
             <MaterialCard key={m.n} material={m} delay={(i % 3) * 90} />
           ))}
         </div>

@@ -19,7 +19,47 @@ export const constructionCopy = {
   stagesLede:
     "Every site is different, but most independent homes move through the same sequence. Durations are indicative and depend on design, approvals and weather.",
   needLede: "The more of this you have ready, the faster we can give you a clear scope and quotation.",
+  teamLede: "Planning, interiors and elevations are handled by our own design team, working alongside the site crew.",
 } as const;
+
+export type TeamMember = {
+  initials: string;
+  name: string;
+  role: string;
+  facts: readonly { k: string; v: string }[];
+  tags: readonly string[];
+  bio: string;
+};
+
+/**
+ * "Our design team". Details supplied by the owner on 29-Sep-2026. Only COA-registered members carry
+ * the "Ar." prefix, the "Architect" title and a COA line. No photos, by the owner's request.
+ */
+export const designTeam: readonly TeamMember[] = [
+  {
+    initials: "VY",
+    name: "Ar. Vinuta Yogesh",
+    role: "Senior Architect",
+    facts: [
+      { k: "Qualification", v: "B.Arch" },
+      { k: "Experience", v: "15+ years" },
+      { k: "COA Reg.", v: "CA/98/23049" },
+    ],
+    tags: ["Healthcare", "Residential"],
+    bio: "Currently handling a hospital project in Kalaburagi and a number of residential projects in Bengaluru, with an apartment design and a township development in the pipeline.",
+  },
+  {
+    initials: "HU",
+    name: "Harshitha U",
+    role: "Senior Interior Designer",
+    facts: [
+      { k: "Qualification", v: "Civil Engineering" },
+      { k: "Experience", v: "9+ years" },
+    ],
+    tags: ["2D interior design", "3D interior design", "3D exterior elevations", "Residential", "Commercial"],
+    bio: "I’m an Interior Designer with 9+ years of experience, creating elegant, functional, and personalized spaces. I turn your vision into beautiful interiors with thoughtful design and attention to detail.",
+  },
+];
 
 /** "What Our Construction Team Handles." */
 export const scopeOfServices: readonly NumberedItem[] = [

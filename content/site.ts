@@ -35,7 +35,7 @@ export const site = {
   titleDefault:
     "dude & Co. — Construction Material Supplier in Karnataka | Building Materials & Civil Construction",
   description:
-    "dude & Co. supplies construction materials across Karnataka — cement, TMT steel, M-sand, aggregates, bricks, AAC blocks, RMC and finishing materials — and undertakes complete civil construction. Based in Bengaluru. GST registered business.",
+    "dude & Co. supplies construction materials across Karnataka — cement, TMT steel, M-sand, aggregates, bricks, AAC blocks, RMC, finishing and interior materials — and undertakes complete civil construction. Based in Bengaluru. GST registered business.",
 } as const;
 
 export type SocialIcon = "facebook" | "instagram" | "youtube" | "x" | "linkedin";

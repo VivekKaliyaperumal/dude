@@ -23,7 +23,7 @@ const whatWeDo = [
 
 /** "Cement, TMT Steel, … and Ready Mix Concrete" from the real category list, so it never drifts from the Materials page. */
 const structuralNames = structuralMaterials.map((m) => m.name);
-const materialsLine = `${structuralNames.slice(0, -1).join(", ")} and ${structuralNames.at(-1)}, plus finishing materials.`;
+const materialsLine = `${structuralNames.slice(0, -1).join(", ")} and ${structuralNames.at(-1)}, plus finishing and interior materials.`;
 
 /**
  * Site footer, four columns from the nav breakpoint:

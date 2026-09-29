@@ -5,6 +5,7 @@ import { buildMetadata } from "@/lib/seo";
 import { CtaBand } from "@/components/chrome/CtaBand";
 import { PageHero } from "@/components/chrome/PageHero";
 import { CivilConstructionSection } from "@/components/sections/CivilConstructionSection";
+import { DesignTeam } from "@/components/sections/DesignTeam";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { NumberedCards } from "@/components/sections/NumberedCards";
 import { NumberedList } from "@/components/sections/NumberedList";
@@ -34,6 +35,7 @@ export default function ConstructionPage() {
         items={scopeOfServices}
         minCol={320}
       />
+      <DesignTeam />
       <NumberedList eyebrow="Sequence" title="Typical Stages for a G+1 Home." lede={constructionCopy.stagesLede} rows={stagesG1} />
       <NumberedCards eyebrow="To get started" title="What We Need From You." lede={constructionCopy.needLede} items={needFromYou} minCol={320}>
         <Reveal className="mt-8">

@@ -35,18 +35,36 @@ export const finishingMaterials: readonly Material[] = [
   { n: "19", name: "Other Materials", variants: ["Project-specific"], desc: "Tell us what your project needs and we will source it." },
 ];
 
+/** Interior materials (owner's dealer rate sheet, 29-Sep-2026). Product names only; sizes, brands and rates are confirmed when quoting. No photos yet. */
+export const interiorMaterials: readonly Material[] = [
+  { n: "20", name: "Boards & Plywood", variants: ["Commercial Plywood", "BWP Plywood", "MR Plywood", "MDF", "HDHMR", "Particle Board", "OSB"], desc: "Plywood and engineered boards for wardrobes, kitchens and furniture." },
+  { n: "21", name: "Laminates & Finishes", variants: ["Decorative Laminate", "Acrylic Laminate", "PET High Gloss", "PU Paint Finish", "Veneer", "Natural Veneer", "Edge Band", "PVC Edge Band"], desc: "Surface finishes and edge bands for boards and shutters." },
+  { n: "22", name: "Kitchen Hardware", variants: ["Soft-close Hinges", "Soft-close Drawer Channels", "Tandem Drawers", "Bottle Pull-out", "Cutlery Basket", "Plain Basket", "Corner Carousel", "Tall Unit Pull-out", "Lift-up Mechanism", "Profile Handle", "G / J Profile"], desc: "Fittings and mechanisms for modular kitchens." },
+  { n: "23", name: "Handles & Accessories", variants: ["Cabinet Handles", "Knobs", "Aluminium Profile", "Glass Profile"], desc: "Handles, knobs and profiles for cabinets and shutters." },
+  { n: "24", name: "Interior Glass & Mirrors", variants: ["Clear", "Toughened", "Fluted / Reeded", "Tinted", "Back-painted", "Mirror"], desc: "Glass for shutters, partitions, backsplashes and mirrors." },
+  { n: "25", name: "PVC, Acrylic & WPC", variants: ["PVC Foam Board", "WPC Board", "Acrylic Sheet"], desc: "Boards for wet areas, cladding and signage-style finishes." },
+  { n: "26", name: "False Ceiling", variants: ["Gypsum Board", "MR Gypsum Board", "Cement Board", "Mineral Fibre Tile", "Aluminium Panel"], desc: "Boards and panels for false ceilings and partitions." },
+  { n: "27", name: "Profiles & Metal", variants: ["GI Stud", "GI Track", "GI Channel", "MS Square Pipe", "Aluminium Profile"], desc: "Framing sections for ceilings, partitions and furniture frames." },
+  { n: "28", name: "Countertops", variants: ["Granite", "Quartz", "Sintered Stone", "Marble"], desc: "Stone and engineered surfaces for kitchen and vanity tops." },
+  { n: "29", name: "Adhesives & Consumables", variants: ["Wood Adhesive", "Contact Adhesive", "Silicone Sealant", "PU Foam", "Wood Screws", "Drywall Screws", "Wall Plugs"], desc: "Adhesives, sealants and fixings for carpentry and drywall work." },
+  { n: "30", name: "Flooring & Wall Panels", variants: ["SPC Flooring", "Laminate Flooring", "Engineered Wood", "Wooden Fluted Panel", "PVC Fluted Panel", "WPC Fluted Panel", "Wallpaper"], desc: "Interior flooring and decorative wall panels." },
+  { n: "31", name: "Lighting & Switches", variants: ["LED Strip", "LED Profile", "Downlight", "COB Light", "Track Light", "Modular Switches", "Modular Sockets"], desc: "Lighting and switchgear for interior fit-outs." },
+  { n: "32", name: "Furniture Materials", variants: ["Fabric", "Leatherette", "Foam", "Curtain Fabric", "Blinds"], desc: "Upholstery, soft furnishing and window materials." },
+];
+
+const categoryCount = structuralMaterials.length + finishingMaterials.length + interiorMaterials.length;
+
 /** Home shows the six structural categories that have a photo. */
 export const homeMaterials = structuralMaterials.filter((m) => m.imageKey).slice(0, 6);
 
 export const estimatorCategories = [
   "Steel", "Cement", "Sand", "Aggregate", "Blocks", "Bricks", "RMC", "Tiles", "Plumbing", "Electrical",
-  "Sanitary Ware", "Doors & Windows", "Paints", "Other",
+  "Sanitary Ware", "Doors & Windows", "Paints", "Interior Materials", "Other",
 ] as const;
 export type EstimatorCategory = (typeof estimatorCategories)[number];
 export const estimatorDefaultCategories: readonly EstimatorCategory[] = ["Steel", "Cement", "Sand"];
 
 export const materialsCopy = {
-  homeFootnote:
-    "19 material categories across structural and finishing work, including tiles, plumbing, electrical, sanitary ware, paints and more.",
+  homeFootnote: `${categoryCount} material categories across structural, finishing and interior work, including tiles, plumbing, electrical, plywood, kitchen hardware and more.`,
   listFootnote: "These are material categories, not fixed stock. Availability and brands depend on project requirements.",
 } as const;
