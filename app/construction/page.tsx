@@ -1,7 +1,7 @@
 import { constructionCopy, needFromYou, scopeOfServices, stagesG1 } from "@/content/construction";
 import { constructionFaq } from "@/content/faq";
 import { routes } from "@/content/nav";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, buildMetadata, serviceJsonLd } from "@/lib/seo";
 import { CtaBand } from "@/components/chrome/CtaBand";
 import { PageHero } from "@/components/chrome/PageHero";
 import { CivilConstructionSection } from "@/components/sections/CivilConstructionSection";
@@ -11,13 +11,15 @@ import { NumberedCards } from "@/components/sections/NumberedCards";
 import { NumberedList } from "@/components/sections/NumberedList";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { JsonLd } from "@/components/ui/JsonLd";
 
 const lede =
   "Our secondary service: civil construction execution, from the first foundation work to final finishing, with materials arranged alongside.";
 
 export const metadata = buildMetadata({
-  title: "Civil Construction — Complete Construction Support",
-  description: lede,
+  title: "Civil Construction Contractor in Bengaluru",
+  description:
+    "Civil construction from foundation to finishing in Bengaluru, with materials arranged by the same team. Built to approved drawings, with stage-wise payment.",
   path: "/construction",
 });
 
@@ -46,6 +48,16 @@ export default function ConstructionPage() {
       </NumberedCards>
       <FaqSection items={constructionFaq} />
       <CtaBand />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Construction", path: routes.construction }])} />
+      <JsonLd
+        data={serviceJsonLd({
+          name: "Civil construction",
+          serviceType: "Civil construction",
+          description: lede,
+          path: routes.construction,
+          options: scopeOfServices.map((s) => s.title),
+        })}
+      />
     </>
   );
 }

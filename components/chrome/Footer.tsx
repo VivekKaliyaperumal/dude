@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { aboutCopy } from "@/content/about";
 import { flags } from "@/content/flags";
 import { structuralMaterials } from "@/content/materials";
-import { legalLinks, primaryNav, routes } from "@/content/nav";
+import { legalLinks, materialHref, primaryNav, routes } from "@/content/nav";
 import { site, socialProfiles } from "@/content/site";
 import { trust } from "@/content/why";
 import { isInternalHref } from "@/lib/utils";
@@ -21,9 +21,27 @@ const whatWeDo = [
   ...(flags.estimator ? [{ label: "Free material estimate", href: routes.estimate }] : []),
 ];
 
-/** "Cement, TMT Steel, … and Ready Mix Concrete" from the real category list, so it never drifts from the Materials page. */
-const structuralNames = structuralMaterials.map((m) => m.name);
-const materialsLine = `${structuralNames.slice(0, -1).join(", ")} and ${structuralNames.at(-1)}, plus finishing and interior materials.`;
+/** "Cement, TMT Steel, … and Ready Mix Concrete" from the real category list, each linked to its landing page. */
+function MaterialsLine() {
+  const last = structuralMaterials.length - 1;
+  return (
+    <>
+      {structuralMaterials.map((m, i) => (
+        <span key={m.n}>
+          {i === last ? " and " : i > 0 ? ", " : ""}
+          {m.slug ? (
+            <Link href={materialHref(m.slug)} className="underline decoration-dark-line-3 underline-offset-2 transition-colors hover:text-white">
+              {m.name}
+            </Link>
+          ) : (
+            m.name
+          )}
+        </span>
+      ))}
+      , plus finishing and interior materials.
+    </>
+  );
+}
 
 /**
  * Site footer, four columns from the nav breakpoint:
@@ -84,7 +102,9 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 max-w-[32ch] text-[12.5px] leading-[1.6] text-on-dark-3">{materialsLine}</p>
+            <p className="mt-4 max-w-[32ch] text-[12.5px] leading-[1.6] text-on-dark-3">
+              <MaterialsLine />
+            </p>
           </nav>
 
           {/* Contact */}

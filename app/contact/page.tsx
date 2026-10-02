@@ -1,16 +1,19 @@
+import { routes } from "@/content/nav";
 import { haveHandy } from "@/content/contact";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/chrome/PageHero";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { NumberedCards } from "@/components/sections/NumberedCards";
 import { QuoteSection } from "@/components/sections/QuoteSection";
+import { JsonLd } from "@/components/ui/JsonLd";
 
 const lede =
   "Share your requirement and we will come back with a clear, itemised quotation. No prices are published online — every quotation is prepared for the specific project.";
 
 export const metadata = buildMetadata({
-  title: "Get a Free Quote — Contact",
-  description: lede,
+  title: "Get a Free Construction Material Quote",
+  description:
+    "Share your material and quantity, delivery location and timeline. We reply with a clear, itemised quotation prepared for your project. Call or WhatsApp.",
   path: "/contact",
 });
 
@@ -27,6 +30,7 @@ export default function ContactPage() {
         minCol={320}
       />
       <ContactSection />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Contact", path: routes.contact }])} />
     </>
   );
 }

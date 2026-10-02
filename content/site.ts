@@ -1,3 +1,17 @@
+/** The owner's confirmed domain (02-Oct-2026). The bare domain and http both 308-redirect here. */
+const productionUrl = "https://www.dudeandco.in";
+
+/**
+ * Public origin for canonical URLs, sitemap, Open Graph and JSON-LD:
+ * NEXT_PUBLIC_SITE_URL when set (e.g. a staging domain), otherwise the confirmed production domain.
+ * Preview and local builds also point their canonicals at production, which is what search engines
+ * expect; lib/seo.ts keeps previews out of the index. Server-only: no client component reads it.
+ */
+function resolveSiteUrl(): string {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  return explicit ? explicit.replace(/\/+$/, "") : productionUrl;
+}
+
 /**
  * Single source of truth for every verified business fact.
  * Verified against the dude & Co. business card (design/uploads) and the approved prototype copy.
@@ -31,11 +45,12 @@ export const site = {
   gstin: "29AAYFD3535F1Z1",
   basedIn: "Bengaluru, Karnataka",
   serviceArea: "Karnataka",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  titleDefault:
-    "dude & Co. — Construction Material Supplier in Karnataka | Building Materials & Civil Construction",
+  url: resolveSiteUrl(),
+  /** ≤60 characters so Google shows it in full (SEO pass, 02-Oct-2026). */
+  titleDefault: "Construction Material Supplier in Bengaluru | dude & Co.",
+  /** ≤160 characters; also the JSON-LD business description. */
   description:
-    "dude & Co. supplies construction materials across Karnataka — cement, TMT steel, M-sand, aggregates, bricks, AAC blocks, RMC, finishing and interior materials — and undertakes complete civil construction. Based in Bengaluru. GST registered business.",
+    "Cement, TMT steel, M-sand, jelly, bricks, AAC blocks, RMC and interior materials supplied across Karnataka, plus civil construction. Based in Bengaluru.",
 } as const;
 
 export type SocialIcon = "facebook" | "instagram" | "youtube" | "x" | "linkedin";

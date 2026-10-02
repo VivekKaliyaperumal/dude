@@ -1,8 +1,11 @@
 import { faqCopy, type FaqItem } from "@/content/faq";
+import { faqJsonLd } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { Faq } from "@/components/ui/Faq";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
+/** FAQ list plus its FAQPage JSON-LD, built from the same items so the two never drift. */
 export function FaqSection({ items }: { items: readonly FaqItem[] }) {
   return (
     <section className="border-t border-line bg-white py-section" aria-labelledby="faq-heading">
@@ -12,6 +15,7 @@ export function FaqSection({ items }: { items: readonly FaqItem[] }) {
           <Faq items={items} />
         </div>
       </Container>
+      <JsonLd data={faqJsonLd(items)} />
     </section>
   );
 }

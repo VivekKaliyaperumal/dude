@@ -1,5 +1,6 @@
+import { routes } from "@/content/nav";
 import { aboutCopy, howWeQuote, howWeQuoteCopy, whoWeWorkWith, whoWeWorkWithCopy } from "@/content/about";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { CtaBand } from "@/components/chrome/CtaBand";
 import { PageHero } from "@/components/chrome/PageHero";
 import { AboutDetail } from "@/components/sections/AboutDetail";
@@ -8,10 +9,12 @@ import { NumberedList } from "@/components/sections/NumberedList";
 import { QualityApproach } from "@/components/sections/QualityApproach";
 import { WhereWeWork } from "@/components/sections/WhereWeWork";
 import { WhySection } from "@/components/sections/WhySection";
+import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata = buildMetadata({
-  title: "About — More Than a Material Supplier",
-  description: aboutCopy.heroLede,
+  title: "About Us — Materials & Construction, Bengaluru",
+  description:
+    "dude & Co. combines construction material supply and civil construction in Bengaluru, with quotations and supply decisions made with the build in mind.",
   path: "/about",
 });
 
@@ -38,6 +41,7 @@ export default function AboutPage() {
         rows={howWeQuote}
       />
       <CtaBand />
+      <JsonLd data={breadcrumbJsonLd([{ name: "About", path: routes.about }])} />
     </>
   );
 }

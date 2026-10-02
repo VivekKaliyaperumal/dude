@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { images } from "@/content/images";
 import type { Material } from "@/content/materials";
-import { routes } from "@/content/nav";
+import { materialHref, routes } from "@/content/nav";
 import { Chip } from "@/components/ui/Chip";
 import { ImageWithCredit } from "@/components/ui/ImageWithCredit";
 import { Reveal } from "@/components/ui/Reveal";
@@ -25,7 +25,15 @@ export function MaterialCard({ material: m, delay = 0 }: Props) {
         </span>
       </div>
       <div className="flex flex-1 flex-col p-5 pb-[22px]">
-        <h3 className="text-[19px] font-bold tracking-[-.02em] text-ink">{m.name}</h3>
+        <h3 className="text-[19px] font-bold tracking-[-.02em] text-ink">
+          {m.slug ? (
+            <Link href={materialHref(m.slug)} className="underline decoration-line-2 underline-offset-4 transition-colors hover:text-green-deep hover:decoration-green">
+              {m.name}
+            </Link>
+          ) : (
+            m.name
+          )}
+        </h3>
         <p className="mt-2.5 text-[13.5px] leading-[1.55] text-muted">{m.desc}</p>
         <ul className="mt-3.5 flex flex-wrap gap-1.5" aria-label={`${m.name} options`}>
           {m.variants.map((v) => (

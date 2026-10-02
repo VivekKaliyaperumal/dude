@@ -6,18 +6,20 @@ export type Material = {
   variants: readonly string[];
   desc: string;
   imageKey?: MaterialImageKey;
+  /** Own landing page at /materials/<slug> (content/material-pages.ts). */
+  slug?: string;
 };
 
 /** Structural materials (prototype MATERIALS array, Home/Materials photo set). */
 export const structuralMaterials: readonly Material[] = [
-  { n: "01", name: "Cement", variants: ["OPC 43", "OPC 53", "PPC", "PSC"], desc: "Grade options for structural, plastering and general construction use.", imageKey: "cement" },
-  { n: "02", name: "TMT Steel", variants: ["Fe 500", "Fe 500D", "Fe 550", "other grades"], desc: "Reinforcement steel supplied to the grade and diameter your design calls for.", imageKey: "tmtSteel" },
-  { n: "03", name: "M-Sand", variants: ["Concrete", "Plastering", "Washed"], desc: "Manufactured sand variants for concreting, masonry and plaster work.", imageKey: "mSand" },
-  { n: "04", name: "Aggregates / Jelly", variants: ["12mm", "20mm", "40mm", "other sizes"], desc: "Graded granite aggregates for concrete, footing and road work.", imageKey: "aggregates" },
-  { n: "05", name: "Red Bricks", variants: ["Wire-cut", "Table-mould"], desc: "Brick varieties suited to load-bearing and partition masonry.", imageKey: "redBricks" },
-  { n: "06", name: "Concrete Blocks", variants: ["Solid", "Hollow"], desc: "Standard block sizes for walls, compound work and infill masonry.", imageKey: "concreteBlocks" },
-  { n: "07", name: "AAC Blocks", variants: ["Lightweight", "multiple thicknesses"], desc: "Lightweight blocks that reduce dead load and speed up masonry.", imageKey: "aacBlocks" },
-  { n: "08", name: "Ready Mix Concrete", variants: ["Project-specific grades"], desc: "RMC arranged to your grade and pour schedule, site conditions permitting.", imageKey: "rmc" },
+  { n: "01", name: "Cement", variants: ["OPC 43", "OPC 53", "PPC", "PSC"], desc: "Grade options for structural, plastering and general construction use.", imageKey: "cement", slug: "cement" },
+  { n: "02", name: "TMT Steel", variants: ["Fe 500", "Fe 500D", "Fe 550", "other grades"], desc: "Reinforcement steel supplied to the grade and diameter your design calls for.", imageKey: "tmtSteel", slug: "tmt-steel" },
+  { n: "03", name: "M-Sand", variants: ["Concrete", "Plastering", "Washed"], desc: "Manufactured sand variants for concreting, masonry and plaster work.", imageKey: "mSand", slug: "m-sand" },
+  { n: "04", name: "Aggregates / Jelly", variants: ["12mm", "20mm", "40mm", "other sizes"], desc: "Graded granite aggregates for concrete, footing and road work.", imageKey: "aggregates", slug: "aggregates" },
+  { n: "05", name: "Red Bricks", variants: ["Wire-cut", "Table-mould"], desc: "Brick varieties suited to load-bearing and partition masonry.", imageKey: "redBricks", slug: "red-bricks" },
+  { n: "06", name: "Concrete Blocks", variants: ["Solid", "Hollow"], desc: "Standard block sizes for walls, compound work and infill masonry.", imageKey: "concreteBlocks", slug: "concrete-blocks" },
+  { n: "07", name: "AAC Blocks", variants: ["Lightweight", "multiple thicknesses"], desc: "Lightweight blocks that reduce dead load and speed up masonry.", imageKey: "aacBlocks", slug: "aac-blocks" },
+  { n: "08", name: "Ready Mix Concrete", variants: ["Project-specific grades"], desc: "RMC arranged to your grade and pour schedule, site conditions permitting.", imageKey: "rmc", slug: "ready-mix-concrete" },
 ];
 
 /** Finishing and building materials (prototype FINISHING array, Materials page version). */

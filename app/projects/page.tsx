@@ -1,3 +1,4 @@
+import { flags } from "@/content/flags";
 import { byProjectType, byProjectTypeCopy, checklistCopy, projectChecklist } from "@/content/projects";
 import { buildMetadata } from "@/lib/seo";
 import { CtaBand } from "@/components/chrome/CtaBand";
@@ -14,6 +15,8 @@ export const metadata = buildMetadata({
   title: "Projects We Have Supplied",
   description: lede,
   path: "/projects",
+  // Thin until real projects are published (flags.projects); kept out of the index and the sitemap.
+  noindex: !flags.projects,
 });
 
 export default function ProjectsPage() {

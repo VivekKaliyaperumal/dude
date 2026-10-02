@@ -1,9 +1,11 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { Archivo, Cinzel, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
-import { jsonLdString, localBusinessJsonLd } from "@/lib/seo";
+import { indexable, siteJsonLd } from "@/lib/seo";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { Footer } from "@/components/chrome/Footer";
 import { Header } from "@/components/chrome/Header";
 import { StickyBar } from "@/components/chrome/StickyBar";
@@ -32,6 +34,13 @@ export const metadata: Metadata = {
   title: { default: site.titleDefault, template: `%s | ${site.brand.copy}` },
   description: site.description,
   applicationName: site.brand.copy,
+  // Preview deployments stay out of search results; pages may still add their own noindex.
+  ...(indexable ? {} : { robots: { index: false, follow: false } }),
+  // Search Console / Bing Webmaster ownership tags, emitted only once the tokens are set in the environment.
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_VERIFICATION ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION } : undefined,
+  },
 };
 
 export const viewport: Viewport = {
@@ -61,7 +70,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <WhatsAppFab />
           <StickyBar />
         </aside>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(localBusinessJsonLd()) }} />
+        <JsonLd data={siteJsonLd()} />
+        {/* Cookie-free page analytics (owner's choice, 02-Oct-2026); it only reports when deployed on Vercel. */}
+        <Analytics />
       </body>
     </html>
   );

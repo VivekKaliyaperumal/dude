@@ -16,6 +16,9 @@ export const routes = {
   estimate: "/#resources",
 } as const;
 
+/** Landing page for one material category (content/material-pages.ts). */
+export const materialHref = (slug: string) => `/materials/${slug}`;
+
 export const primaryNav: NavItem[] = [
   { label: "Home", href: routes.home },
   { label: "Materials", href: routes.materials },
