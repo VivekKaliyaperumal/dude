@@ -38,5 +38,277 @@
       1255
     ],
     "hash": "82b54309"
+  },
+  "materials/aac-blocks": {
+    "width": 1920,
+    "height": 1941,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "0ca3b928"
+  },
+  "materials/adhesives-chem": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "f48f5c76"
+  },
+  "materials/adhesives-consumables": {
+    "width": 1024,
+    "height": 576,
+    "widths": [
+      640,
+      960,
+      1024
+    ],
+    "hash": "f7ee6a5e"
+  },
+  "materials/concrete-blocks": {
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "bc827d3f"
+  },
+  "materials/countertops": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "cc95d7a7"
+  },
+  "materials/doors-windows": {
+    "width": 1080,
+    "height": 1080,
+    "widths": [
+      640,
+      960,
+      1080
+    ],
+    "hash": "f00439a6"
+  },
+  "materials/electrical": {
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      640,
+      960,
+      1024
+    ],
+    "hash": "ff86dd56"
+  },
+  "materials/false-ceiling": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "96b5cb31"
+  },
+  "materials/flooring-panels": {
+    "width": 1152,
+    "height": 864,
+    "widths": [
+      640,
+      960,
+      1152
+    ],
+    "hash": "f185b48e"
+  },
+  "materials/furniture-materials": {
+    "width": 1920,
+    "height": 1442,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "77c1220e"
+  },
+  "materials/glass-arch": {
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      640,
+      960,
+      1024
+    ],
+    "hash": "064d6778"
+  },
+  "materials/handles": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "ce750c3d"
+  },
+  "materials/interior-glass": {
+    "width": 1024,
+    "height": 717,
+    "widths": [
+      640,
+      960,
+      1024
+    ],
+    "hash": "34bc967a"
+  },
+  "materials/kitchen-hardware": {
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      640,
+      960,
+      1024
+    ],
+    "hash": "56293c04"
+  },
+  "materials/laminates": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "4259e0e4"
+  },
+  "materials/lighting": {
+    "width": 1280,
+    "height": 720,
+    "widths": [
+      640,
+      960,
+      1280
+    ],
+    "hash": "de532e9f"
+  },
+  "materials/other-materials": {
+    "width": 1024,
+    "height": 768,
+    "widths": [
+      640,
+      960,
+      1024
+    ],
+    "hash": "a00cd6dd"
+  },
+  "materials/paints": {
+    "width": 960,
+    "height": 640,
+    "widths": [
+      640,
+      960
+    ],
+    "hash": "47fdff80"
+  },
+  "materials/plumbing": {
+    "width": 1024,
+    "height": 768,
+    "widths": [
+      640,
+      960,
+      1024
+    ],
+    "hash": "25e5b516"
+  },
+  "materials/plywood": {
+    "width": 1884,
+    "height": 1404,
+    "widths": [
+      640,
+      960,
+      1280,
+      1884
+    ],
+    "hash": "a807e19f"
+  },
+  "materials/profiles-metal": {
+    "width": 1024,
+    "height": 768,
+    "widths": [
+      640,
+      960,
+      1024
+    ],
+    "hash": "e1a30672"
+  },
+  "materials/pvc-wpc": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "22b5449b"
+  },
+  "materials/sanitary": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "31f56ef6"
+  },
+  "materials/tiles": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "74208d92"
+  },
+  "materials/wall-cladding": {
+    "width": 1023,
+    "height": 681,
+    "widths": [
+      640,
+      960,
+      1023
+    ],
+    "hash": "3f1a9ba6"
+  },
+  "materials/waterproofing": {
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "hash": "e65d7b07"
   }
 }

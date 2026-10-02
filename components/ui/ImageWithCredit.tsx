@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { creditLinks, type SiteImage } from "@/content/images";
+import { creditLinks, creditRequired, type SiteImage } from "@/content/images";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -52,7 +52,7 @@ export function ImageWithCredit({
         quality={quality}
         className={cn("object-cover", imgClassName)}
       />
-      {(credit && image.credit) || image.caption ? (
+      {(credit && image.credit && creditRequired(image.credit)) || image.caption ? (
         <Credit credit={credit ? image.credit : undefined} caption={image.caption} />
       ) : null}
     </div>
@@ -70,7 +70,9 @@ type CreditProps = {
 };
 
 /** The small mono chip: "[caption][ · ]Photo by <name> on <source>". Renders nothing if given neither. */
-export function Credit({ credit, caption, floating = true, className }: CreditProps) {
+export function Credit({ credit: given, caption, floating = true, className }: CreditProps) {
+  // Only licences that require attribution get an on-page credit (see creditRequired).
+  const credit = given && creditRequired(given) ? given : undefined;
   if (!credit && !caption) return null;
   const links = credit ? creditLinks(credit) : null;
   const linkCls = "text-white underline-offset-2 hover:underline focus-visible:underline";
@@ -99,6 +101,18 @@ export function Credit({ credit, caption, floating = true, className }: CreditPr
           <a href={links.source} target="_blank" rel="noopener noreferrer" className={linkCls}>
             {credit.source}
           </a>
+          {"licence" in credit ? (
+            <>
+              {" · "}
+              {links.licence ? (
+                <a href={links.licence} target="_blank" rel="noopener noreferrer license" className={cn(linkCls, "whitespace-nowrap")}>
+                  {credit.licence}
+                </a>
+              ) : (
+                <span className="whitespace-nowrap">{credit.licence}</span>
+              )}
+            </>
+          ) : null}
         </>
       ) : null}
     </span>
