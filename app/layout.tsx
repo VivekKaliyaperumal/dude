@@ -6,6 +6,7 @@ import { site } from "@/content/site";
 import { indexable, siteJsonLd } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { AssistantFab } from "@/components/assistant/AssistantFab";
 import { Footer } from "@/components/chrome/Footer";
 import { Header } from "@/components/chrome/Header";
 import { StickyBar } from "@/components/chrome/StickyBar";
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main">{children}</main>
         <Footer />
         <aside aria-label="Quick contact">
+          <AssistantFab />
           <WhatsAppFab />
           <StickyBar />
         </aside>

@@ -10,6 +10,9 @@ type Name =
   | "close"
   | "pause"
   | "play"
+  | "mic"
+  | "mic-off"
+  | "send"
   | "instagram"
   | "facebook"
   | "linkedin"
@@ -80,6 +83,27 @@ export function Icon({ name, size = 16, ...rest }: Props) {
       return (
         <svg {...common} fill="currentColor">
           <path d="M7 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 7 5.5Z" />
+        </svg>
+      );
+    // Assistant glyphs (Feather Icons, MIT).
+    case "mic":
+      return (
+        <svg {...common} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
+        </svg>
+      );
+    case "mic-off":
+      return (
+        <svg {...common} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <path d="m1 1 22 22M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6" />
+          <path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23M12 19v4M8 23h8" />
+        </svg>
+      );
+    case "send":
+      return (
+        <svg {...common} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z" />
         </svg>
       );
     // Social glyphs (Feather Icons, MIT), drawn as strokes to match the rest of the set.

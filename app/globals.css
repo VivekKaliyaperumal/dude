@@ -95,6 +95,10 @@
   --animate-fade-in-slow: fade-in 0.8s ease both;
   --animate-wa-pop: wa-pop 0.6s var(--ease-pop) 0.8s both;
   --animate-wa-pulse: wa-pulse 2.2s ease-out 1.4s infinite;
+  /* "dude" assistant launcher: rotating brand ring, soft gold glow, and a periodic hello tilt. */
+  --animate-dude-ring: dude-ring 4s linear infinite;
+  --animate-dude-glow: dude-glow 2.6s ease-in-out infinite;
+  --animate-dude-hello: dude-hello 7s ease-in-out 2s infinite;
 
   @keyframes up-in {
     from {
@@ -138,6 +142,39 @@
     100% {
       transform: scale(1.9);
       opacity: 0;
+    }
+  }
+  @keyframes dude-ring {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes dude-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgb(224 165 38 / 0.45);
+    }
+    50% {
+      box-shadow: 0 0 0 9px rgb(224 165 38 / 0);
+    }
+  }
+  @keyframes dude-hello {
+    0%,
+    86%,
+    100% {
+      transform: rotate(0);
+    }
+    89% {
+      transform: rotate(-10deg);
+    }
+    92% {
+      transform: rotate(8deg);
+    }
+    95% {
+      transform: rotate(-5deg);
+    }
+    98% {
+      transform: rotate(2deg);
     }
   }
   @keyframes wa-pop {
