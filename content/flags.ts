@@ -22,8 +22,6 @@ export const flags = {
   legalBodies: flag(process.env.NEXT_PUBLIC_FLAG_LEGAL_BODIES, false),
   /** Show the email address. Marked "(temporary)" in the design. */
   emailPublic: flag(process.env.NEXT_PUBLIC_FLAG_EMAIL_PUBLIC, false),
-  /** Free Material Estimate section on Home. */
-  estimator: flag(process.env.NEXT_PUBLIC_FLAG_ESTIMATOR, true),
 } as const;
 
 export type FlagName = keyof typeof flags;

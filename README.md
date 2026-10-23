@@ -24,8 +24,8 @@ Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SITE_URL` to the real d
 | `components/ui/` | Primitives: Button, Chip, Eyebrow, SectionHeading, HairlineGrid, NumberedRows, ProcessSteps, Faq, Reveal, ParallaxLayer, ImageWithCredit… |
 | `components/chrome/` | Header, mobile menu, footer, WhatsApp button, mobile sticky bar, page hero, CTA band. |
 | `components/sections/` | Page sections composed from primitives and content. |
-| `components/forms/` | Quote, estimate and contact forms. |
-| `app/actions/submit-enquiry.ts` | The one server action behind all three forms. |
+| `components/forms/` | Quote and contact forms. |
+| `app/actions/submit-enquiry.ts` | The one server action behind both forms. |
 | `lib/enquiry/` | Validation schema, rate limit, and `transport.ts` — the only file to change to send enquiries somewhere real. |
 | `design/` | The prototype pages (`*.dc.html`) kept as the copy reference. Not served. |
 
@@ -42,7 +42,6 @@ Nothing invented ships. Sections that need real content stay off until it exists
 | `testimonials` | off | genuine, attributed client feedback is added to `content/testimonials.ts` |
 | `legalBodies` | off | approved Privacy / Terms wording is added to `content/legal.ts` (pages are `noindex` until then) |
 | `emailPublic` | off | the inbox is confirmed live (the design marked `hello@dudeandco.in` as temporary) |
-| `estimator` | on | — |
 
 Flip a flag in `content/flags.ts`, or per deployment with `NEXT_PUBLIC_FLAG_<NAME>=1`.
 
@@ -50,7 +49,7 @@ Social profiles: `socialProfiles` in `content/site.ts` lists Facebook, Instagram
 
 ## Enquiry forms
 
-Quote, material estimate and contact forms all call `submitEnquiry`. It rejects honeypot and too-fast submissions, rate-limits per connection (5 per 10 minutes, in-memory), validates with zod (Indian mobile numbers are normalised to `+91XXXXXXXXXX`), then calls `deliverEnquiry()` in `lib/enquiry/transport.ts`.
+Quote and contact forms both call `submitEnquiry`. It rejects honeypot and too-fast submissions, rate-limits per connection (5 per 10 minutes, in-memory), validates with zod (Indian mobile numbers are normalised to `+91XXXXXXXXXX`), then calls `deliverEnquiry()` in `lib/enquiry/transport.ts`.
 
 **Today the transport logs each enquiry to the server console** (visible in `pnpm dev` output or Vercel function logs). To deliver enquiries for real, implement a case in `transport.ts` (email via Resend, a Google Sheet webhook, WhatsApp Cloud API…) and set `ENQUIRY_TRANSPORT`. Nothing else changes.
 

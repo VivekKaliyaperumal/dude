@@ -18,7 +18,6 @@ const whatWeDo = [
   { label: "Construction material supply", href: routes.materialsList },
   { label: "Civil construction", href: routes.constructionScope },
   { label: "Free quotation", href: routes.quote },
-  ...(flags.estimator ? [{ label: "Free material estimate", href: routes.estimate }] : []),
 ];
 
 /** "Cement, TMT Steel, … and Ready Mix Concrete" from the real category list, each linked to its landing page. */

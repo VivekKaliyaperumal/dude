@@ -1,4 +1,4 @@
-export type EnquiryKind = "quote" | "estimate" | "contact";
+export type EnquiryKind = "quote" | "contact";
 
 export type EnquiryState =
   | { status: "idle" }

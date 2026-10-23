@@ -2,11 +2,11 @@
 
 import { useActionState, useState } from "react";
 import { submitEnquiry } from "@/app/actions/submit-enquiry";
-import { formCopy, projectTypes } from "@/content/contact";
+import { formCopy } from "@/content/contact";
 import { site } from "@/content/site";
 import { initialEnquiryState } from "@/lib/enquiry/types";
 import { ConsentLine } from "./ConsentLine";
-import { SelectField, TextareaField, TextField } from "./Field";
+import { TextareaField, TextField } from "./Field";
 import { FormError } from "./FormError";
 import { FormSuccess } from "./FormSuccess";
 import { HiddenFields } from "./HiddenFields";
@@ -55,12 +55,8 @@ function QuoteFormInner({ tall, onReset }: Props & { onReset: () => void }) {
           error={err("phone")}
           tall={tall}
         />
-        <TextField label="Location" name="location" autoComplete="address-level2" error={err("location")} tall={tall} />
-        <SelectField label="Project Type" name="projectType" placeholder="Select" options={projectTypes} error={err("projectType")} tall={tall} />
-        <TextField label="Material Required" name="material" error={err("material")} tall={tall} />
-        <TextField label="Approximate Quantity" name="quantity" error={err("quantity")} tall={tall} />
       </div>
-      <TextField className="mt-4" label="Delivery Location" name="deliveryLocation" error={err("deliveryLocation")} tall={tall} />
+      <TextField className="mt-4" label="Location" name="location" autoComplete="address-level2" error={err("location")} tall={tall} />
       <TextareaField className="mt-4" label="Message" name="message" rows={5} error={err("message")} />
       <SubmitButton arrow className="mt-6 h-[50px] px-7">
         {formCopy.quote.submit}

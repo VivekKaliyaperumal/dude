@@ -1,13 +1,10 @@
 import { z } from "zod";
-import { estimatorProjectTypes, floorOptions, projectTypes } from "@/content/contact";
-import { estimatorCategories } from "@/content/materials";
+import { projectTypes } from "@/content/contact";
 
 const blankToUndefined = (v: unknown) => (typeof v === "string" && v.trim() === "" ? undefined : v);
 const optText = (max = 200) => z.preprocess(blankToUndefined, z.string().trim().max(max).optional());
 const optEnum = <T extends readonly [string, ...string[]]>(values: T) =>
   z.preprocess(blankToUndefined, z.enum(values).optional());
-const optNumber = (max = 100_000) =>
-  z.preprocess(blankToUndefined, z.coerce.number().positive("Enter a number above zero.").max(max).optional());
 
 /** Indian mobile numbers: 10 digits starting 6-9, optional +91 / 91 / 0 prefix. Normalised to +91XXXXXXXXXX. */
 export const phoneSchema = z
@@ -31,25 +28,7 @@ export const QuoteSchema = z.object({
   name: nameSchema,
   phone: phoneSchema,
   location: optText(),
-  projectType: optEnum(projectTypes),
-  material: optText(),
-  quantity: optText(),
-  deliveryLocation: optText(),
   message: optText(2000),
-  page: optText(),
-});
-
-export const EstimateSchema = z.object({
-  kind: z.literal("estimate"),
-  projectType: optEnum(estimatorProjectTypes),
-  city: optText(),
-  plotLengthFt: optNumber(),
-  plotWidthFt: optNumber(),
-  floors: optEnum(floorOptions),
-  builtUpSqft: optNumber(1_000_000),
-  sumpCapacity: optText(),
-  phone: phoneSchema,
-  categories: z.array(z.enum(estimatorCategories)).max(estimatorCategories.length).default([]),
   page: optText(),
 });
 
@@ -65,18 +44,14 @@ export const ContactSchema = z.object({
   page: optText(),
 });
 
-export const EnquirySchema = z.discriminatedUnion("kind", [QuoteSchema, EstimateSchema, ContactSchema]);
+export const EnquirySchema = z.discriminatedUnion("kind", [QuoteSchema, ContactSchema]);
 export type Enquiry = z.infer<typeof EnquirySchema>;
 
-/** FormData -> plain object; repeated `categories` values become an array. */
+/** FormData -> plain object (string values only). */
 export function formDataToObject(fd: FormData): Record<string, unknown> {
   const out: Record<string, unknown> = {};
-  const categories: string[] = [];
   for (const [key, value] of fd.entries()) {
-    if (typeof value !== "string") continue;
-    if (key === "categories") categories.push(value);
-    else out[key] = value;
+    if (typeof value === "string") out[key] = value;
   }
-  out.categories = categories;
   return out;
 }

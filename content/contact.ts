@@ -13,8 +13,6 @@ export const contactRows: readonly ContactRow[] = [
 ];
 
 export const projectTypes = ["Residential", "Commercial", "Villa", "Renovation", "Other"] as const;
-export const estimatorProjectTypes = ["Residential", "Commercial", "Renovation", "Other"] as const;
-export const floorOptions = ["G", "G+1", "G+2", "G+3", "G+4 or more"] as const;
 
 export const formCopy = {
   callLine: `FOR A FREE QUOTE, CALL ${site.phone.display}`,
@@ -27,16 +25,6 @@ export const formCopy = {
     successBody:
       "Our team will contact you to understand your material requirement, quantity and delivery location, and prepare the right quotation.",
     reset: "Submit another enquiry",
-  },
-  estimate: {
-    step1: "STEP 01 — PROJECT DETAILS",
-    step2: "STEP 02 — MATERIAL CATEGORIES",
-    disclaimer:
-      "Indicative estimate only. Final material quantities depend on structural design, BOQ, drawings, specifications and site conditions.",
-    submit: "Get Free Estimate",
-    successTitle: "Thank you. Our team will contact you for a detailed requirement and quotation.",
-    reset: "Start a new estimate",
-    footnote: "For a free quote, call",
   },
   contact: {
     submit: "Send Enquiry",

@@ -9,10 +9,10 @@ import { EnquirySchema, formDataToObject } from "@/lib/enquiry/schema";
 import { deliverEnquiry } from "@/lib/enquiry/transport";
 import type { EnquiryKind, EnquiryPayload, EnquiryState } from "@/lib/enquiry/types";
 
-const KINDS: readonly EnquiryKind[] = ["quote", "estimate", "contact"];
+const KINDS: readonly EnquiryKind[] = ["quote", "contact"];
 const asKind = (v: unknown): EnquiryKind => (KINDS.includes(v as EnquiryKind) ? (v as EnquiryKind) : "quote");
 
-/** The single server action behind the quote, estimate and contact forms. */
+/** The single server action behind the quote and contact forms. */
 export async function submitEnquiry(_prev: EnquiryState, formData: FormData): Promise<EnquiryState> {
   const h = await headers();
   const ip = h.get("x-forwarded-for")?.split(",")[0]?.trim() || h.get("x-real-ip") || "unknown";

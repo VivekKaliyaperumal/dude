@@ -60,13 +60,6 @@ const categoryCount = structuralMaterials.length + finishingMaterials.length + i
 const homeImageKeys: readonly MaterialImageKey[] = ["cement", "tmtSteel", "mSand", "aggregates", "redBricks", "rmc"];
 export const homeMaterials = structuralMaterials.filter((m) => m.imageKey && homeImageKeys.includes(m.imageKey));
 
-export const estimatorCategories = [
-  "Steel", "Cement", "Sand", "Aggregate", "Blocks", "Bricks", "RMC", "Tiles", "Plumbing", "Electrical",
-  "Sanitary Ware", "Doors & Windows", "Paints", "Interior Materials", "Other",
-] as const;
-export type EstimatorCategory = (typeof estimatorCategories)[number];
-export const estimatorDefaultCategories: readonly EstimatorCategory[] = ["Steel", "Cement", "Sand"];
-
 export const materialsCopy = {
   homeFootnote: `${categoryCount} material categories across structural, finishing and interior work, including tiles, plumbing, electrical, plywood, kitchen hardware and more.`,
   listFootnote: "These are material categories, not fixed stock. Availability and brands depend on project requirements.",

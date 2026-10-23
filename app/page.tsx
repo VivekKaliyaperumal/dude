@@ -7,7 +7,6 @@ import { AboutSummary } from "@/components/sections/AboutSummary";
 import { BrandOptions } from "@/components/sections/BrandOptions";
 import { CivilConstructionSection } from "@/components/sections/CivilConstructionSection";
 import { ContactSummary } from "@/components/sections/ContactSummary";
-import { EstimatorSection } from "@/components/sections/EstimatorSection";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { MaterialsSection } from "@/components/sections/MaterialsSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
@@ -33,7 +32,6 @@ export default function HomePage() {
       <MaterialsSection />
       {flags.brandOptions ? <BrandOptions /> : null}
       <QuoteSection />
-      {flags.estimator ? <EstimatorSection /> : null}
       <WhySection id="about" />
       <SupplyProcessSection />
       <CivilConstructionSection />

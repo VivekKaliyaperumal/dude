@@ -13,7 +13,6 @@ export const routes = {
   contactForm: "/contact#contact",
   materialsList: "/materials#materials",
   constructionScope: "/construction#construction",
-  estimate: "/#resources",
 } as const;
 
 /** Landing page for one material category (content/material-pages.ts). */
