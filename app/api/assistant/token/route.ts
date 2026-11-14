@@ -5,7 +5,7 @@ import { buildSystemPrompt, greeting } from "@/lib/assistant/knowledge";
 import { createRateLimiter } from "@/lib/enquiry/rate-limit";
 import type { AssistantTokenResponse } from "@/lib/assistant/types";
 
-const isLimited = createRateLimiter(SESSIONS_PER_HOUR, 60 * 60 * 1000);
+const isLimited = createRateLimiter("assistant", SESSIONS_PER_HOUR, 60 * 60 * 1000);
 const fallback = `dude is not available right now. Please WhatsApp or call us on ${site.phone.display}.`;
 
 /** Only pages on this site may ask for a session: the Origin must match the host serving the request. */
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
   if (!sameOrigin(request)) return Response.json({ error: "Forbidden" }, { status: 403 });
 
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown";
-  if (isLimited(ip)) {
+  if (await isLimited(ip)) {
     return Response.json(
       { error: `You have reached the session limit for now. Please WhatsApp or call us on ${site.phone.display}.` },
       { status: 429 },

@@ -1,9 +1,21 @@
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
+
 /**
- * Best-effort in-memory rate limit, keyed per connection (usually the client IP).
- * Lives per server instance and resets on cold start, which is adequate while the
- * transport is a console stub. Swap for @upstash/ratelimit (same call shape) when needed.
+ * Rate limiting shared across every server instance via Upstash Redis, so limits hold on Vercel
+ * serverless (cold starts and parallel instances no longer reset them).
+ *
+ * Configure with UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN (or the KV_REST_API_URL +
+ * KV_REST_API_TOKEN pair the Vercel marketplace integration sets). Without them — e.g. local dev —
+ * it falls back to a per-instance in-memory limiter. If Redis errors at runtime, that request is
+ * checked against the in-memory limiter instead of failing.
  */
-export function createRateLimiter(limit: number, windowMs: number) {
+const redisUrl = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
+const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
+const redis = redisUrl && redisToken ? new Redis({ url: redisUrl, token: redisToken }) : null;
+
+/** Best-effort per-instance limiter: the fallback when Redis is not configured or unreachable. */
+function createMemoryLimiter(limit: number, windowMs: number) {
   const hits = new Map<string, number[]>();
 
   return function isLimited(key: string, now = Date.now()): boolean {
@@ -21,5 +33,28 @@ export function createRateLimiter(limit: number, windowMs: number) {
   };
 }
 
+/** Returns an async `isLimited(key)`: true when `key` has used up `limit` calls in the last `windowMs`. */
+export function createRateLimiter(name: string, limit: number, windowMs: number) {
+  const memory = createMemoryLimiter(limit, windowMs);
+  const shared = redis
+    ? new Ratelimit({
+        redis,
+        limiter: Ratelimit.slidingWindow(limit, `${windowMs} ms`),
+        prefix: `dude:rl:${name}`,
+      })
+    : null;
+
+  return async function isLimited(key: string): Promise<boolean> {
+    if (!shared) return memory(key);
+    try {
+      const { success } = await shared.limit(key);
+      return !success;
+    } catch (err) {
+      console.error(`[rate-limit:${name}] Redis unavailable, using in-memory fallback`, err);
+      return memory(key);
+    }
+  };
+}
+
 /** Enquiry forms: 5 submissions per 10 minutes per key. */
-export const isRateLimited = createRateLimiter(5, 10 * 60 * 1000);
+export const isRateLimited = createRateLimiter("enquiry", 5, 10 * 60 * 1000);

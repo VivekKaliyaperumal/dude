@@ -26,7 +26,7 @@ export async function submitEnquiry(_prev: EnquiryState, formData: FormData): Pr
   if (Number.isFinite(started) && started > 0 && Date.now() - started < 1500) return { status: "ok", kind };
 
   // 3. Rate limit per connection.
-  if (isRateLimited(ip)) {
+  if (await isRateLimited(ip)) {
     return { status: "error", message: `Too many enquiries from this connection. Please call ${site.phone.display}.` };
   }
 

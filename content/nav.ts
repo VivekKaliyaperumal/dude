@@ -10,7 +10,7 @@ export const routes = {
   privacy: "/privacy",
   terms: "/terms",
   quote: "/contact#quote",
-  contactForm: "/contact#contact",
+  contactForm: "/contact#quote",
   materialsList: "/materials#materials",
   constructionScope: "/construction#construction",
 } as const;

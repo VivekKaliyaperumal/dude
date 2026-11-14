@@ -2,7 +2,6 @@ import { routes } from "@/content/nav";
 import { haveHandy } from "@/content/contact";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/chrome/PageHero";
-import { ContactSection } from "@/components/sections/ContactSection";
 import { NumberedCards } from "@/components/sections/NumberedCards";
 import { QuoteSection } from "@/components/sections/QuoteSection";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -21,7 +20,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero eyebrow="Get in touch" title="Tell Us What Your Project Needs." lede={lede} />
-      <QuoteSection tall />
+      <QuoteSection tall details />
       <NumberedCards
         eyebrow="Before you enquire"
         title="Have These Handy."
@@ -29,7 +28,6 @@ export default function ContactPage() {
         items={haveHandy}
         minCol={320}
       />
-      <ContactSection />
       <JsonLd data={breadcrumbJsonLd([{ name: "Contact", path: routes.contact }])} />
     </>
   );
