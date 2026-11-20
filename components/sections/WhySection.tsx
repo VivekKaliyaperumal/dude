@@ -3,16 +3,17 @@ import { Container } from "@/components/ui/Container";
 import { HairlineCell, HairlineGrid } from "@/components/ui/HairlineGrid";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-type Props = { id?: string };
+/** `title` lets a page whose H1 already says "More Than a Material Supplier." (/about) avoid repeating it as an H2. */
+type Props = { id?: string; title?: string };
 
-export function WhySection({ id }: Props) {
+export function WhySection({ id, title = "More Than a Material Supplier." }: Props) {
   return (
     <section id={id} className="border-t border-line bg-white py-section">
       <Container>
         <SectionHeading
           layout="split"
           eyebrow="Why dude & Co."
-          title="More Than a Material Supplier."
+          title={title}
           titleClassName="text-[clamp(30px,4.2vw,52px)]"
           lede="We understand construction from the material stage to the actual site."
           ledeClassName="max-w-[42ch]"

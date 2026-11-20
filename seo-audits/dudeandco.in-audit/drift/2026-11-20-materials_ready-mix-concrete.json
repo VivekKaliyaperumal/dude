@@ -1,0 +1,168 @@
+    1 INFO finding(s)
+{
+  "status": "ok",
+  "url": "https://www.dudeandco.in/materials/ready-mix-concrete",
+  "baseline_id": 10,
+  "baseline_timestamp": "2026-11-18T16:32:22.749175+00:00",
+  "comparison_timestamp": "2026-11-20T17:01:04.750559+00:00",
+  "summary": {
+    "total_rules": 17,
+    "triggered": 1,
+    "critical": 0,
+    "warning": 0,
+    "info": 1
+  },
+  "triggered_findings": [
+    {
+      "rule": "content_hash_changed",
+      "severity": "INFO",
+      "triggered": true,
+      "old_value": "4d79de401647...",
+      "new_value": "cd3b975e3112...",
+      "message": "Page content has changed (HTML body hash differs from baseline)."
+    }
+  ],
+  "untriggered_findings": [
+    {
+      "rule": "schema_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "5 schema block(s)",
+      "new_value": "0 schema blocks",
+      "message": "Schema presence unchanged."
+    },
+    {
+      "rule": "canonical_changed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "https://www.dudeandco.in/materials/ready-mix-concrete",
+      "new_value": "https://www.dudeandco.in/materials/ready-mix-concrete",
+      "message": "Canonical URL unchanged."
+    },
+    {
+      "rule": "canonical_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "https://www.dudeandco.in/materials/ready-mix-concrete",
+      "new_value": null,
+      "message": "Canonical tag presence unchanged."
+    },
+    {
+      "rule": "noindex_added",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "Robots directives unchanged regarding noindex."
+    },
+    {
+      "rule": "h1_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Ready Mix Concrete (RMC) in Bengaluru.",
+      "new_value": null,
+      "message": "H1 presence unchanged."
+    },
+    {
+      "rule": "h1_changed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Ready Mix Concrete (RMC) in Bengaluru.",
+      "new_value": "Ready Mix Concrete (RMC) in Bengaluru.",
+      "message": "H1 text is similar enough (similarity: 100%)."
+    },
+    {
+      "rule": "title_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Ready Mix Concrete (RMC) Supplier in Bengaluru | dude & Co.",
+      "new_value": null,
+      "message": "Title tag presence unchanged."
+    },
+    {
+      "rule": "status_code_error",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": 200,
+      "new_value": 200,
+      "message": "Status code: 200 -> 200."
+    },
+    {
+      "rule": "title_changed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "Ready Mix Concrete (RMC) Supplier in Bengaluru | dude & Co.",
+      "new_value": "Ready Mix Concrete (RMC) Supplier in Bengaluru | dude & Co.",
+      "message": "Title text unchanged."
+    },
+    {
+      "rule": "meta_description_changed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "Ready mix concrete arranged to your grade and pour schedule for sites in Bengaluru and across Karnataka, site conditions...",
+      "new_value": "Ready mix concrete arranged to your grade and pour schedule for sites in Bengaluru and across Karnataka, site conditions...",
+      "message": "Meta description unchanged."
+    },
+    {
+      "rule": "cwv_regressed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "CWV comparison skipped (data unavailable)."
+    },
+    {
+      "rule": "perf_score_dropped",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "Performance score comparison skipped."
+    },
+    {
+      "rule": "og_tags_removed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": [
+        "og:title",
+        "og:description",
+        "og:url",
+        "og:site_name",
+        "og:locale",
+        "og:image",
+        "og:image:width",
+        "og:image:height",
+        "og:image:alt",
+        "og:type"
+      ],
+      "new_value": [],
+      "message": "OG tags presence unchanged."
+    },
+    {
+      "rule": "schema_modified",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "7888a82a6672...",
+      "new_value": "7888a82a6672...",
+      "message": "Schema content hash unchanged."
+    },
+    {
+      "rule": "schema_added",
+      "severity": "INFO",
+      "triggered": false,
+      "old_value": "0 schema blocks",
+      "new_value": "5 schema block(s)",
+      "message": "No new schema added."
+    },
+    {
+      "rule": "h2_structure_changed",
+      "severity": "INFO",
+      "triggered": false,
+      "old_value": "6 H2s",
+      "new_value": "6 H2s",
+      "message": "H2 structure unchanged."
+    }
+  ],
+  "current_status_code": 200,
+  "cwv_compared": false
+}

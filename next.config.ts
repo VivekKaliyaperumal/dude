@@ -13,6 +13,19 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Baseline security headers (SEO audit 18-Nov-2026: only HSTS was sent). Microphone stays allowed
+        // for this origin because the voice assistant (components/assistant/useLiveSession.ts) needs it.
+        // A full Content-Security-Policy is left for a report-only trial: inline scripts and remote images need mapping first.
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
+          { key: "Permissions-Policy", value: "camera=(), geolocation=(), payment=(), usb=(), microphone=(self)" },
+        ],
+      },
+      {
         // Rendition URLs carry the source's content hash (?v=…), so they can be cached indefinitely.
         source: "/photos/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],

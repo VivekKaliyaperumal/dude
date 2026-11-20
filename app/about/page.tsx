@@ -22,7 +22,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero eyebrow={aboutCopy.heroEyebrow} title={aboutCopy.heroTitle} lede={aboutCopy.heroLede} />
-      <WhySection id="about" />
+      <WhySection id="about" title="Why Work With dude & Co." />
       <QualityApproach />
       <AboutDetail />
       <NumberedCards

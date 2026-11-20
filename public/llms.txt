@@ -1,0 +1,24 @@
+# dude & Co.
+
+> Construction material supplier and civil construction contractor based in Bengaluru (Bangalore), Karnataka. Supplies cement, TMT steel, M-sand, aggregates (jelly), red bricks, concrete blocks, AAC blocks, ready mix concrete and interior/finishing materials across Karnataka. Every quotation is itemised for the specific project; no price list is published. GST registered (GSTIN 29AAYFD3535F1Z1).
+
+- Address: No. 20, Saladoddi Grama, Bengaluru Urban - 560082, Karnataka, India
+- Phone / WhatsApp: +91 63637 03532
+- Service area: Karnataka. Regular deliveries in and around Bengaluru, Mysuru and Tumakuru; project-based supply to other districts.
+- Construction: civil construction in Bengaluru and surrounding districts, built to approved drawings, with material supply across Karnataka.
+
+## Materials
+- [All materials](https://www.dudeandco.in/materials): categories, grade guide, storage tips, FAQs
+- [Cement](https://www.dudeandco.in/materials/cement): OPC 43, OPC 53, PPC, PSC
+- [TMT steel](https://www.dudeandco.in/materials/tmt-steel): Fe 500, Fe 500D, Fe 550
+- [M-sand](https://www.dudeandco.in/materials/m-sand): concrete, plastering, washed
+- [Aggregates / jelly](https://www.dudeandco.in/materials/aggregates): 12 mm, 20 mm, 40 mm
+- [Red bricks](https://www.dudeandco.in/materials/red-bricks): wire-cut, table-mould
+- [Concrete blocks](https://www.dudeandco.in/materials/concrete-blocks): solid, hollow
+- [AAC blocks](https://www.dudeandco.in/materials/aac-blocks)
+- [Ready mix concrete](https://www.dudeandco.in/materials/ready-mix-concrete): project-specific grades
+
+## Construction and company
+- [Civil construction](https://www.dudeandco.in/construction): scope, typical G+1 stages, what to share
+- [About](https://www.dudeandco.in/about): who we serve, districts covered, how quotations work
+- [Contact / request a quote](https://www.dudeandco.in/contact)

@@ -53,7 +53,9 @@ export function HomeHero() {
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(27_28_26/.82)_0%,rgb(27_28_26/.9)_100%)] tight:bg-[linear-gradient(90deg,rgb(27_28_26/.92)_0%,rgb(27_28_26/.78)_45%,rgb(27_28_26/.45)_100%)]"
       />
       <div aria-hidden className="grid-overlay-light pointer-events-none absolute inset-0" />
-      <div aria-hidden className="pointer-events-none absolute top-1/2 right-[3%] w-[min(600px,37vw)] -translate-y-1/2 opacity-[.22]">
+      {/* Decorative watermark, desktop only: on phones it was the Largest Contentful Paint element (lab LCP 4.1 s,
+          SEO audit 18-Nov-2026) while adding little at 37vw behind full-width copy. */}
+      <div aria-hidden className="pointer-events-none absolute top-1/2 right-[3%] hidden w-[min(600px,37vw)] -translate-y-1/2 opacity-[.22] tight:block">
         <Image unoptimized src="/logo-mark.png" alt="" width={600} height={600} className="mx-auto block w-[74%]" />
       </div>
 
@@ -71,7 +73,7 @@ export function HomeHero() {
           <h1 className="mt-4 text-display font-bold tight:mt-[22px]">
             <span className="block overflow-hidden">
               <span className="animate-mask-in block" style={up("0.3s")}>
-                Everything You Need
+                Everything You Need{" "}
               </span>
             </span>
             <span className="block overflow-hidden">
@@ -86,7 +88,7 @@ export function HomeHero() {
           </p>
           <p className="animate-up-in mt-3.5 max-w-[52ch] text-[14.5px] leading-[1.6] text-on-dark-2" style={up("0.7s")}>
             From foundation materials to finishing essentials, {site.brand.copy} helps you source what your project needs
-            across Karnataka, with complete construction execution when required.
+            in Bengaluru (Bangalore) and across Karnataka, with complete construction execution when required.
           </p>
 
           <div className="animate-up-in mt-6 flex flex-wrap gap-3 tight:mt-8" style={up("0.82s")}>
